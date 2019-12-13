@@ -2,13 +2,38 @@ package com.bnpparibas.bddf.projet.media;
 
 public class Media {
 
-    String id;
-    String label;
+    private String id;
+    private String label;
 
-    Category category;
-    Type type;
+    private Category category;
+    private Type type;
 
-    String authorName;
-    String authorSurname;
+    private String authorName;
+    private String authorSurname;
 
+    public Media() {}
+
+    public String getId() {
+        return id;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public String getAuthorSurname() {
+        return authorSurname;
+    }
 }
