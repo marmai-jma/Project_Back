@@ -26,4 +26,40 @@ public class MediaJPA {
     @Column(name = "AUTHOR_SURNAME")
     private String authorSurname;
 
+    private MediaJPA() {}
+
+    public MediaJPA(Media media){
+        this.id =media.getId();
+        this.authorName = media.getAuthorName();
+        this.authorSurname = media.getAuthorSurname();
+        this.category = media.getCategory();
+        this.type= media.getType();
+    }
+
+    public Media toMedia(){
+        return new Media();
+
+    }    public String getId() {
+        return id;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public String getAuthorSurname() {
+        return authorSurname;
+    }
 }

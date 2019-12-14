@@ -13,6 +13,15 @@ public class Media {
 
     public Media() {}
 
+    public Media(String id, String label, Category category, Type type, String authorName, String authorSurname) {
+        this.id = id;
+        this.label = label;
+        this.category = category;
+        this.type = type;
+        this.authorName = authorName;
+        this.authorSurname = authorSurname;
+    }
+
     public String getId() {
         return id;
     }
