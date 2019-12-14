@@ -22,6 +22,14 @@ public class Media {
         this.authorSurname = authorSurname;
     }
 
+    public void update(Media mediaToUpdate){
+        this.label=mediaToUpdate.getLabel();
+        this.category=mediaToUpdate.getCategory();
+        this.type=mediaToUpdate.getType();
+        this.authorName=mediaToUpdate.getAuthorName();
+        this.authorSurname=mediaToUpdate.getAuthorSurname();
+    }
+
     public String getId() {
         return id;
     }
