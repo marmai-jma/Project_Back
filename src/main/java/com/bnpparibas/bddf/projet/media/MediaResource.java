@@ -1,10 +1,7 @@
 package com.bnpparibas.bddf.projet.media;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,5 +14,10 @@ public class MediaResource {
     @RequestMapping(method= RequestMethod.GET, path={"/medias"})
     public List<MediaDTO> listAllMedias(){
         return MediaAdapter.adaptToMediaDTOList(this.mediaService.listAll());
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = {"/medias/{mediaId}"})
+    public MediaDTO detailMedia(@PathVariable("mediaId") String mediaId ){
+       return MediaAdapter.adaptToMediaDTO(this.mediaService.obtain(mediaId));
     }
 }
