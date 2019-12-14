@@ -30,6 +30,7 @@ public class MediaJPA {
 
     public MediaJPA(Media media){
         this.id =media.getId();
+        this.label=media.getLabel();
         this.authorName = media.getAuthorName();
         this.authorSurname = media.getAuthorSurname();
         this.category = media.getCategory();
