@@ -37,7 +37,7 @@ public class MediaJPA {
     }
 
     public Media toMedia(){
-        return new Media();
+        return new Media(this.id, this.label,this.category, this.type, this.authorName, this.authorSurname);
 
     }    public String getId() {
         return id;
