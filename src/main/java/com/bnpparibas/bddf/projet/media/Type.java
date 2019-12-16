@@ -8,6 +8,7 @@ public enum Type {
     ENFANT,
     SF,
     COMEDIE,
+    FANTASY,
     HISTORIQUE;
 
 }

@@ -2,6 +2,8 @@ package com.bnpparibas.bddf.projet.media;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.LocalDate;
+
 public class MediaDTO {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     String id;
@@ -21,15 +23,25 @@ public class MediaDTO {
     @JsonProperty
     String authorSurname;
 
+    @JsonProperty
+    String description;
+    @JsonProperty
+    String mediaImageURL;
+    @JsonProperty
+    LocalDate publicationDate;
+
     public MediaDTO() {}
 
-    public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname) {
+    public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate) {
         this.id = id;
         this.label = label;
         this.category = category;
         this.type = type;
         this.authorName = authorName;
         this.authorSurname = authorSurname;
+        this.description = description;
+        this.mediaImageURL = mediaImageURL;
+        this.publicationDate = publicationDate;
     }
 
     public String getId() {
@@ -55,4 +67,10 @@ public class MediaDTO {
     public String getAuthorSurname() {
         return authorSurname;
     }
+
+    public String getDescription() { return description; }
+
+    public String getMediaImageURL() { return mediaImageURL; }
+
+    public LocalDate getPublicationDate() { return publicationDate; }
 }

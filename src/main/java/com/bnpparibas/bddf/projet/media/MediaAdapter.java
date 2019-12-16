@@ -10,7 +10,15 @@ public final class MediaAdapter {
     public static Media transformToMedia (MediaDTO mediaDTO){
         String id = (mediaDTO.id == null || mediaDTO.id.trim().equals(""))? UUID.randomUUID().toString() : mediaDTO.id;
 
-        return new Media(id, mediaDTO.label, mediaDTO.category, mediaDTO.type, mediaDTO.authorName, mediaDTO.authorSurname);
+        return new Media(id,
+                mediaDTO.label,
+                mediaDTO.category,
+                mediaDTO.type,
+                mediaDTO.authorName,
+                mediaDTO.authorSurname,
+                mediaDTO.description,
+                mediaDTO.mediaImageURL,
+                mediaDTO.publicationDate);
     }
 
     public static MediaDTO adaptToMediaDTO(Media media){
@@ -19,7 +27,10 @@ public final class MediaAdapter {
                 media.getCategory(),
                 media.getType(),
                 media.getAuthorName(),
-                media.getAuthorSurname());
+                media.getAuthorSurname(),
+                media.getDescription(),
+                media.getMediaImageURL(),
+                media.getPublicationDate());
     }
 
     public static List<MediaDTO> adaptToMediaDTOList(List<Media> medias){

@@ -1,5 +1,8 @@
 package com.bnpparibas.bddf.projet.media;
 
+import java.time.LocalDate;
+
+
 public class Media {
 
     private String id;
@@ -11,15 +14,22 @@ public class Media {
     private String authorName;
     private String authorSurname;
 
+    private String description;
+    private String mediaImageURL;
+    private LocalDate publicationDate;
+
     public Media() {}
 
-    public Media(String id, String label, Category category, Type type, String authorName, String authorSurname) {
+    public Media(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate) {
         this.id = id;
         this.label = label;
         this.category = category;
         this.type = type;
         this.authorName = authorName;
         this.authorSurname = authorSurname;
+        this.description = description;
+        this.mediaImageURL = mediaImageURL;
+        this.publicationDate = publicationDate;
     }
 
     public void update(Media mediaToUpdate){
@@ -28,6 +38,9 @@ public class Media {
         this.type=mediaToUpdate.getType();
         this.authorName=mediaToUpdate.getAuthorName();
         this.authorSurname=mediaToUpdate.getAuthorSurname();
+        this.description = mediaToUpdate.getDescription();
+        this.mediaImageURL = mediaToUpdate.getMediaImageURL();
+        this.publicationDate = mediaToUpdate.getPublicationDate();
     }
 
     public String getId() {
@@ -53,4 +66,10 @@ public class Media {
     public String getAuthorSurname() {
         return authorSurname;
     }
+
+    public String getDescription() { return description;}
+
+    public String getMediaImageURL() { return mediaImageURL; }
+
+    public LocalDate getPublicationDate() { return publicationDate; }
 }
