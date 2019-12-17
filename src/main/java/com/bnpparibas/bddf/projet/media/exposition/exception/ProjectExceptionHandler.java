@@ -1,5 +1,6 @@
-package com.bnpparibas.bddf.projet.media.exception;
+package com.bnpparibas.bddf.projet.media.exposition.exception;
 
+import com.bnpparibas.bddf.projet.media.domain.exception.ProjectApplicationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

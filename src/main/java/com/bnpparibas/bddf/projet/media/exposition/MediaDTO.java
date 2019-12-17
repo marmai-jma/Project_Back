@@ -1,5 +1,7 @@
-package com.bnpparibas.bddf.projet.media;
+package com.bnpparibas.bddf.projet.media.exposition;
 
+import com.bnpparibas.bddf.projet.media.domain.Category;
+import com.bnpparibas.bddf.projet.media.domain.Type;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;

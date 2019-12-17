@@ -1,5 +1,7 @@
-package com.bnpparibas.bddf.projet.media;
+package com.bnpparibas.bddf.projet.media.application;
 
+import com.bnpparibas.bddf.projet.media.domain.Media;
+import com.bnpparibas.bddf.projet.media.domain.MediaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

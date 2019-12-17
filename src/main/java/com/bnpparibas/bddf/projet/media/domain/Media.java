@@ -1,4 +1,4 @@
-package com.bnpparibas.bddf.projet.media;
+package com.bnpparibas.bddf.projet.media.domain;
 
 import java.time.LocalDate;
 

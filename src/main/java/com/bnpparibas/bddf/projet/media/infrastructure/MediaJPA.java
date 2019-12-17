@@ -1,8 +1,11 @@
-package com.bnpparibas.bddf.projet.media;
+package com.bnpparibas.bddf.projet.media.infrastructure;
+
+import com.bnpparibas.bddf.projet.media.domain.Category;
+import com.bnpparibas.bddf.projet.media.domain.Type;
+import com.bnpparibas.bddf.projet.media.domain.Media;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity(name = "MEDIA")
 public class MediaJPA {

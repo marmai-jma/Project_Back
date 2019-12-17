@@ -1,5 +1,6 @@
-package com.bnpparibas.bddf.projet.media;
+package com.bnpparibas.bddf.projet.media.exposition;
 
+import com.bnpparibas.bddf.projet.media.application.MediaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

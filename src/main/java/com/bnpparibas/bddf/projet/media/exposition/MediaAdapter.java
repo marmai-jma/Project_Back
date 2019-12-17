@@ -1,4 +1,6 @@
-package com.bnpparibas.bddf.projet.media;
+package com.bnpparibas.bddf.projet.media.exposition;
+
+import com.bnpparibas.bddf.projet.media.domain.Media;
 
 import java.util.List;
 import java.util.UUID;

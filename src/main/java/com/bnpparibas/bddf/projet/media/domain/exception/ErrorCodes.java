@@ -1,4 +1,4 @@
-package com.bnpparibas.bddf.projet.media.exception;
+package com.bnpparibas.bddf.projet.media.domain.exception;
 
 public final class ErrorCodes {
     private ErrorCodes() {}

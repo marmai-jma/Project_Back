@@ -1,7 +1,9 @@
-package com.bnpparibas.bddf.projet.media;
+package com.bnpparibas.bddf.projet.media.infrastructure;
 
-import com.bnpparibas.bddf.projet.media.exception.ErrorCodes;
-import com.bnpparibas.bddf.projet.media.exception.ProjectApplicationException;
+import com.bnpparibas.bddf.projet.media.domain.MediaRepository;
+import com.bnpparibas.bddf.projet.media.domain.Media;
+import com.bnpparibas.bddf.projet.media.domain.exception.ErrorCodes;
+import com.bnpparibas.bddf.projet.media.domain.exception.ProjectApplicationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
