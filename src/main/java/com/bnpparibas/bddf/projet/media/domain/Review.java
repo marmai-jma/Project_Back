@@ -6,6 +6,8 @@ public class Review {
     private String id;
     private String comment;
     private LocalDateTime reviewDate;
+    private int usefulTotalNumber = 0;
+    private int uselessTotalNumber = 0;
 
     public Review() {}
 
@@ -13,6 +15,11 @@ public class Review {
         this.id = id;
         this.comment = comment;
         this.reviewDate = reviewDate;
+    }
+
+    public void update(Review reviewToUpdate) {
+        this.comment = reviewToUpdate.getComment();
+        this.reviewDate = reviewToUpdate.getReviewDate();
     }
 
     public String getId() {
@@ -25,5 +32,13 @@ public class Review {
 
     public LocalDateTime getReviewDate() {
         return reviewDate;
+    }
+
+    public int getUsefulTotalNumber() {
+        return usefulTotalNumber;
+    }
+
+    public int getUselessTotalNumber() {
+        return uselessTotalNumber;
     }
 }

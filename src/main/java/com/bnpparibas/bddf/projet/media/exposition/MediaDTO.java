@@ -50,6 +50,8 @@ public class MediaDTO {
         this.description = description;
         this.mediaImageURL = mediaImageURL;
         this.publicationDate = publicationDate;
+        this.likesTotalNumber = likesTotalNumber;
+        this.dislikesTotalNumber = dislikesTotalNumber;
     }
 
     public String getId() {
