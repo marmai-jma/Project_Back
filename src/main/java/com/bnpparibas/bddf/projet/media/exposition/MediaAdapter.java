@@ -32,7 +32,10 @@ public final class MediaAdapter {
                 media.getAuthorSurname(),
                 media.getDescription(),
                 media.getMediaImageURL(),
-                media.getPublicationDate());
+                media.getPublicationDate(),
+                media.getLikesTotalNumber(),
+                media.getDislikesTotalNumber()
+        );
     }
 
     public static List<MediaDTO> adaptToMediaDTOList(List<Media> medias){

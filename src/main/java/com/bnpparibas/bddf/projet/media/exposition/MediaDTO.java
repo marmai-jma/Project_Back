@@ -32,9 +32,15 @@ public class MediaDTO {
     @JsonProperty
     LocalDate publicationDate;
 
+    @JsonProperty
+    int likesTotalNumber;
+
+    @JsonProperty
+    int dislikesTotalNumber;
+
     public MediaDTO() {}
 
-    public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate) {
+    public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, int likesTotalNumber, int dislikesTotalNumber) {
         this.id = id;
         this.label = label;
         this.category = category;
@@ -75,4 +81,12 @@ public class MediaDTO {
     public String getMediaImageURL() { return mediaImageURL; }
 
     public LocalDate getPublicationDate() { return publicationDate; }
+
+    public int getLikesTotalNumber() {
+        return likesTotalNumber;
+    }
+
+    public int getDislikesTotalNumber() {
+        return dislikesTotalNumber;
+    }
 }

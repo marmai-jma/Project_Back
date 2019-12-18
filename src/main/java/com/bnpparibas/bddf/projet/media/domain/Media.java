@@ -17,6 +17,8 @@ public class Media {
     private String description;
     private String mediaImageURL;
     private LocalDate publicationDate;
+    private int likesTotalNumber = 0;
+    private int dislikesTotalNumber = 0;
 
     public Media() {}
 
@@ -72,4 +74,12 @@ public class Media {
     public String getMediaImageURL() { return mediaImageURL; }
 
     public LocalDate getPublicationDate() { return publicationDate; }
+
+    public int getLikesTotalNumber() {
+        return likesTotalNumber;
+    }
+
+    public int getDislikesTotalNumber() {
+        return dislikesTotalNumber;
+    }
 }
