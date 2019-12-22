@@ -31,9 +31,12 @@ public class UserJPA {
     @Column(name = "EMAIL")
     private String email;
 
+    @Column(name = "ACTIVE")
+    private boolean active;
+
     public UserJPA() { }
 
-    public UserJPA(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email) {
+    public UserJPA(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -41,6 +44,7 @@ public class UserJPA {
         this.userSurname = userSurname;
         this.avatarImageURL = avatarImageURL;
         this.email = email;
+        this.active = active;
     }
 
     public UserJPA(User user) {
@@ -51,6 +55,7 @@ public class UserJPA {
         this.userSurname = user.getUserSurname();
         this.avatarImageURL=user.getAvatarImageURL();
         this.email=user.getEmail();
+        this.active=user.isActive();
     }
 
     public User toUser(){
@@ -60,7 +65,8 @@ public class UserJPA {
                 this.userName,
                 this.userSurname,
                 this.avatarImageURL,
-                this.email);
+                this.email,
+                this.active);
     }
 
     public String getId() {
@@ -81,5 +87,17 @@ public class UserJPA {
 
     public String getUserSurname() {
         return userSurname;
+    }
+
+    public String getAvatarImageURL() {
+        return avatarImageURL;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public boolean isActive() {
+        return active;
     }
 }

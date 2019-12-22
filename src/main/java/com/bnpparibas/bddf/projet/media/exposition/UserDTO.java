@@ -24,9 +24,12 @@ public class UserDTO {
     @JsonProperty
     String email;
 
+    @JsonProperty
+    boolean active;
+
     public UserDTO() {}
 
-    public UserDTO(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email) {
+    public UserDTO(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -34,6 +37,7 @@ public class UserDTO {
         this.userSurname = userSurname;
         this.avatarImageURL = avatarImageURL;
         this.email = email;
+        this.active = active;
     }
 
     public String getId() {
@@ -62,5 +66,9 @@ public class UserDTO {
 
     public String getEmail() {
         return email;
+    }
+
+    public boolean isActive() {
+        return active;
     }
 }

@@ -8,10 +8,11 @@ public class User {
     private String userSurname;
     private String avatarImageURL;
     private String email;
+    private boolean active;
 
     public User() {}
 
-    public User(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email) {
+    public User(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -19,6 +20,7 @@ public class User {
         this.userSurname = userSurname;
         this.avatarImageURL = avatarImageURL;
         this.email = email;
+        this.active = active;
     }
 
     public void update(User userToUpdate){
@@ -27,6 +29,7 @@ public class User {
         this.userSurname=userToUpdate.getUserSurname();
         this.avatarImageURL=userToUpdate.getAvatarImageURL();
         this.email=userToUpdate.getEmail();
+        this.active=userToUpdate.isActive();
     }
 
     public String getId() {
@@ -55,5 +58,9 @@ public class User {
 
     public String getEmail() {
         return email;
+    }
+
+    public boolean isActive() {
+        return active;
     }
 }

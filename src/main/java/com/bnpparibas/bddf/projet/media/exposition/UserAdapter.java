@@ -18,7 +18,9 @@ public class UserAdapter {
                 userDTO.userName,
                 userDTO.userSurname,
                 userDTO.avatarImageURL,
-                userDTO.email);
+                userDTO.email,
+                userDTO.active
+        );
     }
 
     public static UserDTO adaptToUserDTO(User user){
@@ -28,7 +30,8 @@ public class UserAdapter {
                 user.getUserName(),
                 user.getUserSurname(),
                 user.getAvatarImageURL(),
-                user.getEmail());
+                user.getEmail(),
+                user.isActive());
     }
 
     public static List<UserDTO> adaptToUserDTOList(List<User> users){
