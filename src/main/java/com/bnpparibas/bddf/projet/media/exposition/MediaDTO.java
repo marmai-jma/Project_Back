@@ -1,7 +1,6 @@
 package com.bnpparibas.bddf.projet.media.exposition;
 
 import com.bnpparibas.bddf.projet.media.domain.Category;
-import com.bnpparibas.bddf.projet.media.domain.MediaNotation;
 import com.bnpparibas.bddf.projet.media.domain.Type;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -41,11 +40,11 @@ public class MediaDTO {
     int dislikesTotalNumber;
 
     @JsonProperty
-    Set<MediaNotation> mediaNotations;
+    Set<MediaNotationDTOMedia> mediaNotationsDTO;
 
     public MediaDTO() {}
 
-    public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, int likesTotalNumber, int dislikesTotalNumber, Set<MediaNotation> mediaNotations) {
+    public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, int likesTotalNumber, int dislikesTotalNumber, Set<MediaNotationDTOMedia> mediaNotationsDTO) {
         this.id = id;
         this.label = label;
         this.category = category;
@@ -57,9 +56,22 @@ public class MediaDTO {
         this.publicationDate = publicationDate;
         this.likesTotalNumber = likesTotalNumber;
         this.dislikesTotalNumber = dislikesTotalNumber;
-        this.mediaNotations = mediaNotations;
+        this.mediaNotationsDTO = mediaNotationsDTO;
     }
 
+    public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, int likesTotalNumber, int dislikesTotalNumber) {
+        this.id = id;
+        this.label = label;
+        this.category = category;
+        this.type = type;
+        this.authorName = authorName;
+        this.authorSurname = authorSurname;
+        this.description = description;
+        this.mediaImageURL = mediaImageURL;
+        this.publicationDate = publicationDate;
+        this.likesTotalNumber = likesTotalNumber;
+        this.dislikesTotalNumber = dislikesTotalNumber;
+    }
     public String getId() {
         return id;
     }
@@ -98,7 +110,7 @@ public class MediaDTO {
         return dislikesTotalNumber;
     }
 
-    public Set<MediaNotation> getMediaNotations() {
-        return mediaNotations;
+    public Set<MediaNotationDTOMedia> getMediaNotationsDTO() {
+        return mediaNotationsDTO;
     }
 }
