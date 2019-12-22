@@ -1,10 +1,12 @@
 package com.bnpparibas.bddf.projet.media.exposition;
 
 import com.bnpparibas.bddf.projet.media.domain.Category;
+import com.bnpparibas.bddf.projet.media.domain.MediaNotation;
 import com.bnpparibas.bddf.projet.media.domain.Type;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 public class MediaDTO {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
@@ -38,9 +40,12 @@ public class MediaDTO {
     @JsonProperty
     int dislikesTotalNumber;
 
+    @JsonProperty
+    Set<MediaNotation> mediaNotations;
+
     public MediaDTO() {}
 
-    public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, int likesTotalNumber, int dislikesTotalNumber) {
+    public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, int likesTotalNumber, int dislikesTotalNumber, Set<MediaNotation> mediaNotations) {
         this.id = id;
         this.label = label;
         this.category = category;
@@ -52,6 +57,7 @@ public class MediaDTO {
         this.publicationDate = publicationDate;
         this.likesTotalNumber = likesTotalNumber;
         this.dislikesTotalNumber = dislikesTotalNumber;
+        this.mediaNotations = mediaNotations;
     }
 
     public String getId() {
@@ -90,5 +96,9 @@ public class MediaDTO {
 
     public int getDislikesTotalNumber() {
         return dislikesTotalNumber;
+    }
+
+    public Set<MediaNotation> getMediaNotations() {
+        return mediaNotations;
     }
 }

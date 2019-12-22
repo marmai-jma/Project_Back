@@ -1,6 +1,7 @@
 package com.bnpparibas.bddf.projet.media.domain;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 
 public class Media {
@@ -17,12 +18,14 @@ public class Media {
     private String description;
     private String mediaImageURL;
     private LocalDate publicationDate;
-    private int likesTotalNumber = 0;
-    private int dislikesTotalNumber = 0;
+    private int likesTotalNumber;
+    private int dislikesTotalNumber;
+    private Set<MediaNotation> mediaNotations;
+
 
     public Media() {}
 
-    public Media(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate) {
+    public Media(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, int likesTotalNumber, int dislikesTotalNumber, Set<MediaNotation> mediaNotations) {
         this.id = id;
         this.label = label;
         this.category = category;
@@ -32,6 +35,9 @@ public class Media {
         this.description = description;
         this.mediaImageURL = mediaImageURL;
         this.publicationDate = publicationDate;
+        this.likesTotalNumber = 0;
+        this.dislikesTotalNumber = 0;
+        this.mediaNotations = mediaNotations;
     }
 
     public void update(Media mediaToUpdate){
@@ -43,6 +49,7 @@ public class Media {
         this.description = mediaToUpdate.getDescription();
         this.mediaImageURL = mediaToUpdate.getMediaImageURL();
         this.publicationDate = mediaToUpdate.getPublicationDate();
+        this.mediaNotations = mediaToUpdate.getMediaNotations();
     }
 
     public String getId() {
@@ -81,5 +88,9 @@ public class Media {
 
     public int getDislikesTotalNumber() {
         return dislikesTotalNumber;
+    }
+
+    public Set<MediaNotation> getMediaNotations() {
+        return mediaNotations;
     }
 }

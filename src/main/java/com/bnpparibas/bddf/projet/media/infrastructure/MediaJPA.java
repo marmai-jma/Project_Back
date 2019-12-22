@@ -1,11 +1,15 @@
 package com.bnpparibas.bddf.projet.media.infrastructure;
 
 import com.bnpparibas.bddf.projet.media.domain.Category;
+import com.bnpparibas.bddf.projet.media.domain.MediaNotation;
 import com.bnpparibas.bddf.projet.media.domain.Type;
 import com.bnpparibas.bddf.projet.media.domain.Media;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Stream;
 
 @Entity(name = "MEDIA")
 public class MediaJPA {
@@ -40,10 +44,14 @@ public class MediaJPA {
     @Column(name = "PUBLICATION_DATE")
     private LocalDate publicationDate;
 
+    @OneToMany
+    @JoinColumn(name="ID")
+    private Set<MediaNotationJPA> mediaNotationsJPA;
+
 
     private MediaJPA() {}
 
-    public MediaJPA(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate) {
+    public MediaJPA(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, Set<MediaNotationJPA> mediaNotationsJPA) {
         this.id = id;
         this.label = label;
         this.category = category;
@@ -53,6 +61,7 @@ public class MediaJPA {
         this.description = description;
         this.mediaImageURL = mediaImageURL;
         this.publicationDate = publicationDate;
+        this.mediaNotationsJPA = mediaNotationsJPA;
     }
 
     public MediaJPA(Media media) {
@@ -65,6 +74,13 @@ public class MediaJPA {
         this.description = media.getDescription();
         this.mediaImageURL = media.getMediaImageURL();
         this.publicationDate = media.getPublicationDate();
+        this.mediaNotationsJPA =  new HashSet();
+
+        Stream stream = media.getMediaNotations().stream();
+
+        stream.forEach((element) -> {
+            this.mediaNotationsJPA.add(new MediaNotationJPA((MediaNotation) element));
+        });
     }
 
     public Media toMedia(){
@@ -76,7 +92,10 @@ public class MediaJPA {
                 this.authorSurname,
                 this.description,
                 this.mediaImageURL,
-                this.publicationDate); }
+                this.publicationDate,
+                0,
+                0,
+                null); }
 
     public String getId() {
         return id;
@@ -107,4 +126,8 @@ public class MediaJPA {
     public String getMediaImageURL() { return mediaImageURL; }
 
     public LocalDate getPublicationDate() { return publicationDate; }
+
+    public Set<MediaNotationJPA> getMediaNotationsJPA() {
+        return mediaNotationsJPA;
+    }
 }

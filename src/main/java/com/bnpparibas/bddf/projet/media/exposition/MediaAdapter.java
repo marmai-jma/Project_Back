@@ -20,7 +20,11 @@ public final class MediaAdapter {
                 mediaDTO.authorSurname,
                 mediaDTO.description,
                 mediaDTO.mediaImageURL,
-                mediaDTO.publicationDate);
+                mediaDTO.publicationDate,
+                mediaDTO.likesTotalNumber,
+                mediaDTO.dislikesTotalNumber,
+                mediaDTO.mediaNotations
+        );
     }
 
     public static MediaDTO adaptToMediaDTO(Media media){
@@ -34,7 +38,8 @@ public final class MediaAdapter {
                 media.getMediaImageURL(),
                 media.getPublicationDate(),
                 media.getLikesTotalNumber(),
-                media.getDislikesTotalNumber()
+                media.getDislikesTotalNumber(),
+                media.getMediaNotations()
         );
     }
 
