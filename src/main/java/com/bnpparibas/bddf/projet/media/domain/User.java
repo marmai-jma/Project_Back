@@ -1,5 +1,7 @@
 package com.bnpparibas.bddf.projet.media.domain;
 
+import java.util.Set;
+
 public class User {
     private String id;
     private String login;
@@ -9,6 +11,7 @@ public class User {
     private String avatarImageURL;
     private String email;
     private boolean active;
+    private Set<MediaNotation> mediaNotations;
 
     public User() {}
 
@@ -62,5 +65,9 @@ public class User {
 
     public boolean isActive() {
         return active;
+    }
+
+    public Set<MediaNotation> getMediaNotations() {
+        return mediaNotations;
     }
 }

@@ -8,8 +8,9 @@ import javax.persistence.*;
 @Entity(name ="MEDIA_NOTATION")
 public class MediaNotationJPA {
     @Id
+    @Column(name = "NOTATION_ID")
     @GeneratedValue
-    Long id;
+    Long notationId;
 
     @JsonProperty
     @ManyToOne
@@ -18,24 +19,18 @@ public class MediaNotationJPA {
     @Column(name = "LIKED")
     boolean liked;
 
-    @Column
-    String userJPA; // A revoir
+    @JsonProperty
+    @ManyToOne
+    UserJPA userJPA;
 
     public MediaNotationJPA() {
     }
 
-    public MediaNotationJPA(Long id, MediaJPA mediaJPA, boolean liked, String userJPA) {
-        this.id = id;
+    public MediaNotationJPA(Long notationId, MediaJPA mediaJPA, boolean liked, UserJPA userJPA) {
+        this.notationId = notationId;
         this.mediaJPA = mediaJPA;
         this.liked = liked;
         this.userJPA = userJPA;
-    }
-
-    public MediaNotationJPA(MediaNotation mediaNotation) {
-        this.id = mediaNotation.getId();
-        this.mediaJPA = new MediaJPA(mediaNotation.getMedia());
-        this.liked = mediaNotation.isLiked();
-        this.userJPA = "userJPA";
     }
 
     public MediaJPA getMediaJPA() {
@@ -46,11 +41,11 @@ public class MediaNotationJPA {
         return liked;
     }
 
-    public String getUserJPA() {
+    public UserJPA getUserJPA() {
         return userJPA;
     }
 
-    public Long getId() {
-        return id;
+    public Long getNotationId() {
+        return notationId;
     }
 }

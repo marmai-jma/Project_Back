@@ -2,6 +2,8 @@ package com.bnpparibas.bddf.projet.media.exposition;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Set;
+
 public class UserDTO {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     String id;
@@ -27,9 +29,12 @@ public class UserDTO {
     @JsonProperty
     boolean active;
 
+    @JsonProperty
+    Set<MediaNotationDTOUser> mediaNotationsDTO;
+
     public UserDTO() {}
 
-    public UserDTO(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active) {
+    public UserDTO(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active, Set<MediaNotationDTOUser> mediaNotationsDTO) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -38,6 +43,7 @@ public class UserDTO {
         this.avatarImageURL = avatarImageURL;
         this.email = email;
         this.active = active;
+        this.mediaNotationsDTO = mediaNotationsDTO;
     }
 
     public String getId() {
@@ -70,5 +76,9 @@ public class UserDTO {
 
     public boolean isActive() {
         return active;
+    }
+
+    public Set<MediaNotationDTOUser> getMediaNotationsDTO() {
+        return mediaNotationsDTO;
     }
 }

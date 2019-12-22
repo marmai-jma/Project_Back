@@ -2,9 +2,8 @@ package com.bnpparibas.bddf.projet.media.infrastructure;
 
 import com.bnpparibas.bddf.projet.media.domain.User;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity(name = "USER")
 public class UserJPA {
@@ -33,6 +32,10 @@ public class UserJPA {
 
     @Column(name = "ACTIVE")
     private boolean active;
+
+    @OneToMany
+    @JoinColumn(name="USERJPA_ID")
+    private Set<MediaNotationJPA> mediaNotationsJPA;
 
     public UserJPA() { }
 
@@ -99,5 +102,9 @@ public class UserJPA {
 
     public boolean isActive() {
         return active;
+    }
+
+    public Set<MediaNotationJPA> getMediaNotationsJPA() {
+        return mediaNotationsJPA;
     }
 }

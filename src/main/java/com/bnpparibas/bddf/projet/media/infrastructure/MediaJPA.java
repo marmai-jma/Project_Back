@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Entity(name = "MEDIA")
@@ -45,7 +46,7 @@ public class MediaJPA {
     private LocalDate publicationDate;
 
     @OneToMany
-    @JoinColumn(name="ID")
+    @JoinColumn(name="MEDIAJPA_ID")
     private Set<MediaNotationJPA> mediaNotationsJPA;
 
 
@@ -74,16 +75,15 @@ public class MediaJPA {
         this.description = media.getDescription();
         this.mediaImageURL = media.getMediaImageURL();
         this.publicationDate = media.getPublicationDate();
-        this.mediaNotationsJPA =  new HashSet();
-
-        Stream stream = media.getMediaNotations().stream();
-
-        stream.forEach((element) -> {
-            this.mediaNotationsJPA.add(new MediaNotationJPA((MediaNotation) element));
-        });
     }
 
     public Media toMedia(){
+        Set<MediaNotation> mediaNotations = null;
+        //if (this.getMediaNotationsJPA() != null) {
+        //    mediaNotations = this.getMediaNotationsJPA().stream()
+        //            .map(mediaNotationJPA -> new MediaNotation(mediaNotationJPA.getNotationId(), null, mediaNotationJPA.isLiked(), null))
+        //            .collect(Collectors.toSet());
+        //}
         return new Media(this.id,
                 this.label,
                 this.category,
@@ -95,7 +95,9 @@ public class MediaJPA {
                 this.publicationDate,
                 0,
                 0,
-                null); }
+                mediaNotations);
+
+    }
 
     public String getId() {
         return id;

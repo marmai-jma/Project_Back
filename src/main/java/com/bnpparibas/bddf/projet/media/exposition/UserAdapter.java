@@ -3,6 +3,7 @@ package com.bnpparibas.bddf.projet.media.exposition;
 import com.bnpparibas.bddf.projet.media.domain.User;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -24,6 +25,13 @@ public class UserAdapter {
     }
 
     public static UserDTO adaptToUserDTO(User user){
+        Set<MediaNotationDTOUser> notationDTOUsers = null;
+        if (user.getMediaNotations() != null) {
+            notationDTOUsers = user.getMediaNotations().stream()
+                    .map(mediaNotation -> new MediaNotationDTOUser(mediaNotation.getId(), mediaNotation.isLiked(), mediaNotation.getMedia().getId()))
+                    .collect(Collectors.toSet());
+        }
+
         return new UserDTO(user.getId(),
                 user.getLogin(),
                 user.getPassword(),
@@ -31,7 +39,8 @@ public class UserAdapter {
                 user.getUserSurname(),
                 user.getAvatarImageURL(),
                 user.getEmail(),
-                user.isActive());
+                user.isActive(),
+                notationDTOUsers);
     }
 
     public static List<UserDTO> adaptToUserDTOList(List<User> users){
