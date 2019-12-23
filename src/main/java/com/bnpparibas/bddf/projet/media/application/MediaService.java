@@ -29,7 +29,7 @@ public class MediaService {
     public void update(String id, Media mediaToUpdate){
         Media media = obtain(id);
         media.update(mediaToUpdate);
-        this.mediaRepository.save(media);
+        this.mediaRepository.update(media);
     }
 
     public void remove(String id){

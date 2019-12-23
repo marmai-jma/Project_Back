@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface MediaRepository {
     String save(Media media);
+    String update(Media media);
     Media get(String id);
     List<Media> findAll();
     void delete(String id);

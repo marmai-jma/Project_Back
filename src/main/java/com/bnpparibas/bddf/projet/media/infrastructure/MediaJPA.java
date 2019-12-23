@@ -103,6 +103,19 @@ public class MediaJPA {
         mediaNotations);
     }
 
+    public MediaJPA(Media media, Set<MediaNotationJPA> mediaNotationJPAS) {
+        this.id = media.getId();
+        this.label = media.getLabel();
+        this.category = media.getCategory();
+        this.type = media.getType();
+        this.authorName = media.getAuthorName();
+        this.authorSurname = media.getAuthorSurname();
+        this.description = media.getDescription();
+        this.mediaImageURL = media.getMediaImageURL();
+        this.publicationDate = media.getPublicationDate();
+        this.mediaNotationsJPA = mediaNotationJPAS;
+    }
+
     public String getId() {
         return id;
     }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
@@ -19,6 +20,15 @@ public class MediaRepositoryImpl implements MediaRepository {
     public String save(Media media) {
         MediaJPA mediaJPA = mediaDAO.save(new MediaJPA(media));
         return mediaJPA.getId();
+    }
+
+    @Override
+    public String update(Media media) {
+        Optional<MediaJPA> mediaJPA = mediaDAO.findById(media.getId());
+        if (mediaJPA.isPresent()) {
+            return mediaDAO.save(new MediaJPA(media, mediaJPA.get().getMediaNotationsJPA())).getId();
+        }
+        return null;
     }
 
     @Override
