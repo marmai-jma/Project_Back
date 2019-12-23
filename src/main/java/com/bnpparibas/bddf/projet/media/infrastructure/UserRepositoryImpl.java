@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
@@ -21,10 +22,20 @@ public class UserRepositoryImpl implements UserRepository {
         return userJPA.getId();
     }
 
+   @Override
+   public String update(User user) {
+       Optional<UserJPA> userJPA = userDAO.findById(user.getId());
+       if (userJPA.isPresent()) {
+           return userDAO.save(new UserJPA(user, userJPA.get().getMediaNotationsJPA())).getId();
+       }
+       return null;
+   }
+
+
     @Override
     public User get(String id) {
         return userDAO.findById(id)
-                .map(userJPA -> new User(userJPA))
+                .map(userJPA -> userJPA.jpatoUser())
                 .orElseThrow(() -> new ProjectApplicationException(ErrorCodes.NOT_FOUND));
     }
 
@@ -33,7 +44,7 @@ public class UserRepositoryImpl implements UserRepository {
         return userDAO
                 .findAll()
                 .stream()
-                .map(userJPA -> new User(userJPA))
+                .map(userJPA -> userJPA.jpatoUser())
                 .collect(Collectors.toList());
     }
 

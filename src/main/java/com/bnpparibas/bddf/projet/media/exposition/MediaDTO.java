@@ -102,11 +102,11 @@ public class MediaDTO {
 
     public LocalDate getPublicationDate() { return publicationDate; }
 
-    public int getLikesTotalNumber() {
+    public int getLikesNumber() {
         return likesNumber;
     }
 
-    public int getDislikesTotalNumber() {
+    public int getDislikesNumber() {
         return dislikesNumber;
     }
 

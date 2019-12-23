@@ -29,7 +29,7 @@ public class UserService {
     public void update(String id, User userToUpdate){
         User user = obtain(id);
         user.update(userToUpdate);
-        this.userRepository.save(user);
+        this.userRepository.update(user);
     }
 
     public void remove(String id){

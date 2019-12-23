@@ -24,7 +24,7 @@ public class MediaRepositoryImpl implements MediaRepository {
     @Override
     public Media get(String id) {
         return mediaDAO.findById(id)
-                .map(mediaJPA -> new Media(mediaJPA))
+                .map(mediaJPA -> mediaJPA.jpaToMedia())
                 .orElseThrow(() -> new ProjectApplicationException(ErrorCodes.NOT_FOUND));
     }
 
@@ -33,7 +33,7 @@ public class MediaRepositoryImpl implements MediaRepository {
         return mediaDAO
                 .findAll()
                 .stream()
-                .map(mediaJPA -> new Media(mediaJPA))
+                .map(mediaJPA -> mediaJPA.jpaToMedia())
                 .collect(Collectors.toList());
     }
 

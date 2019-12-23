@@ -1,9 +1,6 @@
 package com.bnpparibas.bddf.projet.media.infrastructure;
 
-import com.bnpparibas.bddf.projet.media.domain.Category;
-import com.bnpparibas.bddf.projet.media.domain.MediaNotation;
-import com.bnpparibas.bddf.projet.media.domain.Type;
-import com.bnpparibas.bddf.projet.media.domain.Media;
+import com.bnpparibas.bddf.projet.media.domain.*;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
@@ -79,18 +76,31 @@ public class MediaJPA {
         this.publicationDate = media.getPublicationDate();
     }
 
-    public Media toMedia(){
-        return new Media(this.id,
-                this.label,
-                this.category,
-                this.type,
-                this.authorName,
-                this.authorSurname,
-                this.description,
-                this.mediaImageURL,
-                this.publicationDate,
-                null);
-
+    public Media jpaToMedia(){
+        Set<MediaNotation> mediaNotations = null;
+        if (this.getMediaNotationsJPA() != null) {
+            mediaNotations = this.getMediaNotationsJPA().stream()
+                    .map(mediaNotationJPA -> new MediaNotation(mediaNotationJPA.getNotationId(), null, mediaNotationJPA.isLiked(),
+                            new User(mediaNotationJPA.getUserJPA().getId(),
+                                    mediaNotationJPA.getUserJPA().getLogin(),
+                                    mediaNotationJPA.getUserJPA().getPassword(),
+                                    mediaNotationJPA.getUserJPA().getUserName(),
+                                    mediaNotationJPA.getUserJPA().getUserSurname(),
+                                    mediaNotationJPA.getUserJPA().getAvatarImageURL(),
+                                    mediaNotationJPA.getUserJPA().getEmail(),
+                                    mediaNotationJPA.getUserJPA().isActive())))
+                    .collect(Collectors.toSet());
+        }
+        return new Media(this.getId(),
+        this.getLabel(),
+        this.getCategory(),
+        this.getType(),
+        this.getAuthorName(),
+        this.getAuthorSurname(),
+        this.getDescription(),
+        this.getMediaImageURL(),
+        this.getPublicationDate(),
+        mediaNotations);
     }
 
     public String getId() {

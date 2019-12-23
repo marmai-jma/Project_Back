@@ -29,32 +29,16 @@ public class User {
         this.active = active;
     }
 
-    public User(UserJPA userJPA) {
-        this.id = userJPA.getId();
-        this.login = userJPA.getLogin();
-        this.password = userJPA.getPassword();
-        this.userName = userJPA.getUserName();
-        this.userSurname = userJPA.getUserSurname();
-        this.avatarImageURL = userJPA.getAvatarImageURL();
-        this.email = userJPA.getEmail();
-        this.active = userJPA.isActive();
-        this.mediaNotations = null;
-        if (userJPA.getMediaNotationsJPA() != null) {
-            this.mediaNotations = userJPA.getMediaNotationsJPA().stream()
-                    .map(mediaNotationJPA -> new MediaNotation(mediaNotationJPA.getNotationId(),
-                            new Media(mediaNotationJPA.getMediaJPA().getId(),
-                                    mediaNotationJPA.getMediaJPA().getLabel(),
-                                    mediaNotationJPA.getMediaJPA().getCategory(),
-                                    mediaNotationJPA.getMediaJPA().getType(),
-                                    mediaNotationJPA.getMediaJPA().getAuthorName(),
-                                    mediaNotationJPA.getMediaJPA().getAuthorSurname(),
-                                    mediaNotationJPA.getMediaJPA().getDescription(),
-                                    mediaNotationJPA.getMediaJPA().getMediaImageURL(),
-                                    mediaNotationJPA.getMediaJPA().getPublicationDate(),
-                                    null),
-                            mediaNotationJPA.isLiked(), this))
-                    .collect(Collectors.toSet());
-        }
+    public User(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active, Set<MediaNotation> mediaNotations) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+        this.userName = userName;
+        this.userSurname = userSurname;
+        this.avatarImageURL = avatarImageURL;
+        this.email = email;
+        this.active = active;
+        this.mediaNotations = mediaNotations;
     }
 
     public void update(User userToUpdate){

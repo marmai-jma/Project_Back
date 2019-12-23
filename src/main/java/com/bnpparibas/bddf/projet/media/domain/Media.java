@@ -39,32 +39,6 @@ public class Media {
         this.mediaNotations = mediaNotations;
     }
 
-    public Media(MediaJPA mediaJPA) {
-        this.id = mediaJPA.getId();
-        this.label = mediaJPA.getLabel();
-        this.category = mediaJPA.getCategory();
-        this.type = mediaJPA.getType();
-        this.authorName = mediaJPA.getAuthorName();
-        this.authorSurname = mediaJPA.getAuthorSurname();
-        this.description = mediaJPA.getDescription();
-        this.mediaImageURL = mediaJPA.getMediaImageURL();
-        this.publicationDate = mediaJPA.getPublicationDate();
-        this.mediaNotations = null;
-        if (mediaJPA.getMediaNotationsJPA() != null) {
-            this.mediaNotations = mediaJPA.getMediaNotationsJPA().stream()
-                    .map(mediaNotationJPA -> new MediaNotation(mediaNotationJPA.getNotationId(), this, mediaNotationJPA.isLiked(),
-                            new User(mediaNotationJPA.getUserJPA().getId(),
-                                    mediaNotationJPA.getUserJPA().getLogin(),
-                                    mediaNotationJPA.getUserJPA().getPassword(),
-                                    mediaNotationJPA.getUserJPA().getUserName(),
-                                    mediaNotationJPA.getUserJPA().getUserSurname(),
-                                    mediaNotationJPA.getUserJPA().getAvatarImageURL(),
-                                    mediaNotationJPA.getUserJPA().getEmail(),
-                                    mediaNotationJPA.getUserJPA().isActive())))
-                    .collect(Collectors.toSet());
-        }
-    }
-
     public void update(Media mediaToUpdate){
         this.label=mediaToUpdate.getLabel();
         this.category=mediaToUpdate.getCategory();

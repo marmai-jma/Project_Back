@@ -1,9 +1,12 @@
 package com.bnpparibas.bddf.projet.media.infrastructure;
 
+import com.bnpparibas.bddf.projet.media.domain.Media;
+import com.bnpparibas.bddf.projet.media.domain.MediaNotation;
 import com.bnpparibas.bddf.projet.media.domain.User;
 
 import javax.persistence.*;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity(name = "USER")
 public class UserJPA {
@@ -61,15 +64,49 @@ public class UserJPA {
         this.active=user.isActive();
     }
 
-    public User toUser(){
-        return new User(this.id,
-                this.login,
-                this.password,
-                this.userName,
-                this.userSurname,
-                this.avatarImageURL,
-                this.email,
-                this.active);
+    public UserJPA(User user, Set<MediaNotationJPA> mediaNotationJPAS) {
+        this.id = user.getId();
+        this.login = user.getLogin();
+        this.password = user.getPassword();
+        this.userName = user.getUserName();
+        this.userSurname = user.getUserSurname();
+        this.avatarImageURL=user.getAvatarImageURL();
+        this.email=user.getEmail();
+        this.active=user.isActive();
+        this.mediaNotationsJPA = mediaNotationJPAS;
+    }
+
+    public User jpatoUser(){
+        Set<MediaNotation> mediaNotations = null;
+
+        if (this.getMediaNotationsJPA() != null) {
+            mediaNotations = this.getMediaNotationsJPA().stream()
+                    .map(mediaNotationJPA -> new MediaNotation(mediaNotationJPA.getNotationId(),
+                            new Media(mediaNotationJPA.getMediaJPA().getId(),
+                                    mediaNotationJPA.getMediaJPA().getLabel(),
+                                    mediaNotationJPA.getMediaJPA().getCategory(),
+                                    mediaNotationJPA.getMediaJPA().getType(),
+                                    mediaNotationJPA.getMediaJPA().getAuthorName(),
+                                    mediaNotationJPA.getMediaJPA().getAuthorSurname(),
+                                    mediaNotationJPA.getMediaJPA().getDescription(),
+                                    mediaNotationJPA.getMediaJPA().getMediaImageURL(),
+                                    mediaNotationJPA.getMediaJPA().getPublicationDate(),
+                                    null),
+                            mediaNotationJPA.isLiked(), null))
+                    .collect(Collectors.toSet());
+        }
+        return new User(this.getId(),
+                this.getLogin(),
+                this.getPassword(),
+                this.getUserName(),
+                this.getUserSurname(),
+                this.getAvatarImageURL(),
+                this.getEmail(),
+                this.isActive(),
+                mediaNotations);
+
+
+
     }
 
     public String getId() {
