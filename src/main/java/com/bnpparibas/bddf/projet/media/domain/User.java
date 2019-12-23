@@ -51,8 +51,6 @@ public class User {
                                     mediaNotationJPA.getMediaJPA().getDescription(),
                                     mediaNotationJPA.getMediaJPA().getMediaImageURL(),
                                     mediaNotationJPA.getMediaJPA().getPublicationDate(),
-                                    0,
-                                    0,
                                     null),
                             mediaNotationJPA.isLiked(), this))
                     .collect(Collectors.toSet());

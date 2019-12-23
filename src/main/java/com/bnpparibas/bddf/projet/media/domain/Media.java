@@ -21,14 +21,12 @@ public class Media {
     private String description;
     private String mediaImageURL;
     private LocalDate publicationDate;
-    private int likesTotalNumber;
-    private int dislikesTotalNumber;
     private Set<MediaNotation> mediaNotations;
 
 
     public Media() {}
 
-    public Media(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, int likesTotalNumber, int dislikesTotalNumber, Set<MediaNotation> mediaNotations) {
+    public Media(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, Set<MediaNotation> mediaNotations) {
         this.id = id;
         this.label = label;
         this.category = category;
@@ -38,8 +36,6 @@ public class Media {
         this.description = description;
         this.mediaImageURL = mediaImageURL;
         this.publicationDate = publicationDate;
-        this.likesTotalNumber = 0;
-        this.dislikesTotalNumber = 0;
         this.mediaNotations = mediaNotations;
     }
 
@@ -111,12 +107,19 @@ public class Media {
 
     public LocalDate getPublicationDate() { return publicationDate; }
 
-    public int getLikesTotalNumber() {
-        return likesTotalNumber;
+    public int getLikesNumber() {
+        int tmp = 0;
+        if (this.mediaNotations != null) {
+            for (MediaNotation mediaNotation : this.mediaNotations) {
+                if (mediaNotation.isLiked())
+                    tmp++;
+            }
+        }
+        return tmp;
     }
 
-    public int getDislikesTotalNumber() {
-        return dislikesTotalNumber;
+    public int getNotationNumber() {
+        return (this.mediaNotations == null) ? 0 : this.mediaNotations.size();
     }
 
     public Set<MediaNotation> getMediaNotations() {

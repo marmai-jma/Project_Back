@@ -25,8 +25,6 @@ public final class MediaAdapter {
                 mediaDTO.description,
                 mediaDTO.mediaImageURL,
                 mediaDTO.publicationDate,
-                mediaDTO.likesTotalNumber,
-                mediaDTO.dislikesTotalNumber,
                 null
         );
     }
@@ -46,6 +44,7 @@ public final class MediaAdapter {
                                     mediaNotation.getUser().isActive(), null)))
                     .collect(Collectors.toSet());
         }
+        int likesNumber = media.getLikesNumber();
         return new MediaDTO(media.getId(),
                 media.getLabel(),
                 media.getCategory(),
@@ -55,8 +54,8 @@ public final class MediaAdapter {
                 media.getDescription(),
                 media.getMediaImageURL(),
                 media.getPublicationDate(),
-                media.getLikesTotalNumber(),
-                media.getDislikesTotalNumber(),
+                likesNumber,
+                media.getNotationNumber() - likesNumber,
                 mediaNotationDTOs);
     }
 

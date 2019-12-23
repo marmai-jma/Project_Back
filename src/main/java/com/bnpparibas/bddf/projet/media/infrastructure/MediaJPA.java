@@ -89,8 +89,6 @@ public class MediaJPA {
                 this.description,
                 this.mediaImageURL,
                 this.publicationDate,
-                0,
-                0,
                 null);
 
     }

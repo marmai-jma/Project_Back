@@ -34,10 +34,10 @@ public class MediaDTO {
     LocalDate publicationDate;
 
     @JsonProperty
-    int likesTotalNumber;
+    int likesNumber;
 
     @JsonProperty
-    int dislikesTotalNumber;
+    int dislikesNumber;
 
     @JsonProperty
     Set<MediaNotationDTOUser> mediaNotationsDTO;
@@ -54,8 +54,8 @@ public class MediaDTO {
         this.description = description;
         this.mediaImageURL = mediaImageURL;
         this.publicationDate = publicationDate;
-        this.likesTotalNumber = likesTotalNumber;
-        this.dislikesTotalNumber = dislikesTotalNumber;
+        this.likesNumber = likesTotalNumber;
+        this.dislikesNumber = dislikesTotalNumber;
         this.mediaNotationsDTO = mediaNotationsDTO;
     }
 
@@ -69,8 +69,8 @@ public class MediaDTO {
         this.description = description;
         this.mediaImageURL = mediaImageURL;
         this.publicationDate = publicationDate;
-        this.likesTotalNumber = likesTotalNumber;
-        this.dislikesTotalNumber = dislikesTotalNumber;
+        this.likesNumber = likesTotalNumber;
+        this.dislikesNumber = dislikesTotalNumber;
     }
     public String getId() {
         return id;
@@ -103,11 +103,11 @@ public class MediaDTO {
     public LocalDate getPublicationDate() { return publicationDate; }
 
     public int getLikesTotalNumber() {
-        return likesTotalNumber;
+        return likesNumber;
     }
 
     public int getDislikesTotalNumber() {
-        return dislikesTotalNumber;
+        return dislikesNumber;
     }
 
     public Set<MediaNotationDTOUser> getMediaNotationsDTO() {
