@@ -25,10 +25,22 @@ public class UserAdapter {
     }
 
     public static UserDTO adaptToUserDTO(User user){
-        Set<MediaNotationDTOUser> notationDTOUsers = null;
+        Set<MediaNotationDTOMedia> mediaNotationDTOMedia = null;
         if (user.getMediaNotations() != null) {
-            notationDTOUsers = user.getMediaNotations().stream()
-                    .map(mediaNotation -> new MediaNotationDTOUser(mediaNotation.getId(), mediaNotation.isLiked(), mediaNotation.getMedia().getId()))
+            mediaNotationDTOMedia = user.getMediaNotations().stream()
+                    .map(mediaNotation -> new MediaNotationDTOMedia(mediaNotation.getId(), mediaNotation.isLiked(),
+                            new MediaDTO(mediaNotation.getMedia().getId(),
+                                    mediaNotation.getMedia().getLabel(),
+                                    mediaNotation.getMedia().getCategory(),
+                                    mediaNotation.getMedia().getType(),
+                                    mediaNotation.getMedia().getAuthorName(),
+                                    mediaNotation.getMedia().getAuthorSurname(),
+                                    mediaNotation.getMedia().getDescription(),
+                                    mediaNotation.getMedia().getMediaImageURL(),
+                                    mediaNotation.getMedia().getPublicationDate(),
+                                    0,
+                                    0,
+                                    null)))
                     .collect(Collectors.toSet());
         }
 
@@ -40,7 +52,7 @@ public class UserAdapter {
                 user.getAvatarImageURL(),
                 user.getEmail(),
                 user.isActive(),
-                notationDTOUsers);
+                mediaNotationDTOMedia);
     }
 
     public static List<UserDTO> adaptToUserDTOList(List<User> users){

@@ -4,6 +4,7 @@ import com.bnpparibas.bddf.projet.media.domain.Category;
 import com.bnpparibas.bddf.projet.media.domain.MediaNotation;
 import com.bnpparibas.bddf.projet.media.domain.Type;
 import com.bnpparibas.bddf.projet.media.domain.Media;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -47,6 +48,7 @@ public class MediaJPA {
 
     @OneToMany
     @JoinColumn(name="MEDIAJPA_ID")
+    @JsonBackReference
     private Set<MediaNotationJPA> mediaNotationsJPA;
 
 
@@ -78,12 +80,6 @@ public class MediaJPA {
     }
 
     public Media toMedia(){
-        Set<MediaNotation> mediaNotations = null;
-        //if (this.getMediaNotationsJPA() != null) {
-        //    mediaNotations = this.getMediaNotationsJPA().stream()
-        //            .map(mediaNotationJPA -> new MediaNotation(mediaNotationJPA.getNotationId(), null, mediaNotationJPA.isLiked(), null))
-        //            .collect(Collectors.toSet());
-        //}
         return new Media(this.id,
                 this.label,
                 this.category,
@@ -95,7 +91,7 @@ public class MediaJPA {
                 this.publicationDate,
                 0,
                 0,
-                mediaNotations);
+                null);
 
     }
 

@@ -24,7 +24,7 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User get(String id) {
         return userDAO.findById(id)
-                .map(userJPA -> userJPA.toUser())
+                .map(userJPA -> new User(userJPA))
                 .orElseThrow(() -> new ProjectApplicationException(ErrorCodes.NOT_FOUND));
     }
 
@@ -33,7 +33,7 @@ public class UserRepositoryImpl implements UserRepository {
         return userDAO
                 .findAll()
                 .stream()
-                .map(userJPA -> userJPA.toUser())
+                .map(userJPA -> new User(userJPA))
                 .collect(Collectors.toList());
     }
 

@@ -32,10 +32,18 @@ public final class MediaAdapter {
     }
 
     public static MediaDTO adaptToMediaDTO(Media media){
-        Set<MediaNotationDTOMedia> notationDTOMedias = null;
+        Set<MediaNotationDTOUser> mediaNotationDTOs = null;
         if (media.getMediaNotations() != null) {
-            notationDTOMedias = media.getMediaNotations().stream()
-                    .map(mediaNotation -> new MediaNotationDTOMedia(mediaNotation.getId(), mediaNotation.isLiked(), mediaNotation.getUser().getId()))
+            mediaNotationDTOs = media.getMediaNotations().stream()
+                    .map(mediaNotation -> new MediaNotationDTOUser(mediaNotation.getId(), mediaNotation.isLiked(),
+                            new UserDTO(mediaNotation.getUser().getId(),
+                                    mediaNotation.getUser().getLogin(),
+                                    mediaNotation.getUser().getPassword(),
+                                    mediaNotation.getUser().getUserName(),
+                                    mediaNotation.getUser().getUserSurname(),
+                                    mediaNotation.getUser().getAvatarImageURL(),
+                                    mediaNotation.getUser().getEmail(),
+                                    mediaNotation.getUser().isActive(), null)))
                     .collect(Collectors.toSet());
         }
         return new MediaDTO(media.getId(),
@@ -49,7 +57,7 @@ public final class MediaAdapter {
                 media.getPublicationDate(),
                 media.getLikesTotalNumber(),
                 media.getDislikesTotalNumber(),
-                notationDTOMedias);
+                mediaNotationDTOs);
     }
 
     public static List<MediaDTO> adaptToMediaDTOList(List<Media> medias){

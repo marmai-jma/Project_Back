@@ -30,11 +30,11 @@ public class UserDTO {
     boolean active;
 
     @JsonProperty
-    Set<MediaNotationDTOUser> mediaNotationsDTO;
+    Set<MediaNotationDTOMedia> mediaNotationsDTO;
 
     public UserDTO() {}
 
-    public UserDTO(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active, Set<MediaNotationDTOUser> mediaNotationsDTO) {
+    public UserDTO(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active, Set<MediaNotationDTOMedia> mediaNotationsDTO) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -78,7 +78,7 @@ public class UserDTO {
         return active;
     }
 
-    public Set<MediaNotationDTOUser> getMediaNotationsDTO() {
+    public Set<MediaNotationDTOMedia> getMediaNotationsDTO() {
         return mediaNotationsDTO;
     }
 }

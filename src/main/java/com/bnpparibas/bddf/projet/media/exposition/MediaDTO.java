@@ -40,11 +40,11 @@ public class MediaDTO {
     int dislikesTotalNumber;
 
     @JsonProperty
-    Set<MediaNotationDTOMedia> mediaNotationsDTO;
+    Set<MediaNotationDTOUser> mediaNotationsDTO;
 
     public MediaDTO() {}
 
-    public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, int likesTotalNumber, int dislikesTotalNumber, Set<MediaNotationDTOMedia> mediaNotationsDTO) {
+    public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, int likesTotalNumber, int dislikesTotalNumber, Set<MediaNotationDTOUser> mediaNotationsDTO) {
         this.id = id;
         this.label = label;
         this.category = category;
@@ -110,7 +110,7 @@ public class MediaDTO {
         return dislikesTotalNumber;
     }
 
-    public Set<MediaNotationDTOMedia> getMediaNotationsDTO() {
+    public Set<MediaNotationDTOUser> getMediaNotationsDTO() {
         return mediaNotationsDTO;
     }
 }
