@@ -8,6 +8,9 @@ public class Review {
     private LocalDateTime reviewDate;
     private int usefulTotalNumber = 0;
     private int uselessTotalNumber = 0;
+    private Media media;
+    private User user;
+
 
     public Review() {}
 

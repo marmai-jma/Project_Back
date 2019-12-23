@@ -22,7 +22,7 @@ public class Media {
     private String mediaImageURL;
     private LocalDate publicationDate;
     private Set<MediaNotation> mediaNotations;
-
+    private Set<Review> reviews;
 
     public Media() {}
 

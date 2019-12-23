@@ -48,6 +48,10 @@ public class MediaJPA {
     @JsonBackReference
     private Set<MediaNotationJPA> mediaNotationsJPA;
 
+    @OneToMany
+    @JoinColumn(name="MEDIAJPA_ID")
+    @JsonBackReference
+    private Set<ReviewJPA> reviewsJPA;
 
     private MediaJPA() {}
 

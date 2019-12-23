@@ -20,6 +20,9 @@ public class ReviewDTO {
     @JsonProperty
     int uselessTotalNumber;
 
+    @JsonProperty
+    UserDTO userDto;
+
     public ReviewDTO() { }
 
     public ReviewDTO(String id, String comment, LocalDateTime reviewDate, int usefulTotalNumber, int uselessTotalNumber) {

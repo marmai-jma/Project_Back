@@ -1,10 +1,13 @@
 package com.bnpparibas.bddf.projet.media.infrastructure;
 
 import com.bnpparibas.bddf.projet.media.domain.Review;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Entity(name = "REVIEW")
@@ -17,6 +20,15 @@ public class ReviewJPA {
     private String comment;
     @Column(name = "REVIEW_DATE")
     private LocalDateTime reviewDate;
+
+    @JsonProperty
+    @ManyToOne
+    @JsonManagedReference
+    MediaJPA mediaJPA;
+
+    @JsonProperty
+    @ManyToOne
+    UserJPA userJPA;
 
     public ReviewJPA() { }
 

@@ -42,6 +42,9 @@ public class MediaDTO {
     @JsonProperty
     Set<MediaNotationDTOUser> mediaNotationsDTO;
 
+    @JsonProperty
+    Set<ReviewDTO> ReviewDTO;
+
     public MediaDTO() {}
 
     public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, int likesTotalNumber, int dislikesTotalNumber, Set<MediaNotationDTOUser> mediaNotationsDTO) {
