@@ -1,4 +1,4 @@
-package com.bnpparibas.bddf.projet.media.exposition;
+package com.bnpparibas.bddf.projet.media.exposition.dto;
 
 import com.bnpparibas.bddf.projet.media.domain.Category;
 import com.bnpparibas.bddf.projet.media.domain.Type;

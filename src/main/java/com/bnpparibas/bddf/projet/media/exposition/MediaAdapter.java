@@ -1,6 +1,10 @@
 package com.bnpparibas.bddf.projet.media.exposition;
 
 import com.bnpparibas.bddf.projet.media.domain.Media;
+import com.bnpparibas.bddf.projet.media.exposition.dto.MediaDTO;
+import com.bnpparibas.bddf.projet.media.exposition.dto.MediaLightDTO;
+import com.bnpparibas.bddf.projet.media.exposition.dto.MediaNotationDTOUser;
+import com.bnpparibas.bddf.projet.media.exposition.dto.UserDTO;
 
 import java.util.List;
 import java.util.Set;
@@ -12,17 +16,17 @@ public final class MediaAdapter {
     private MediaAdapter() {}
 
     public static Media transformToMedia (MediaDTO mediaDTO){
-        String id = (mediaDTO.id == null || mediaDTO.id.trim().equals(""))? UUID.randomUUID().toString() : mediaDTO.id;
+        String id = (mediaDTO.getId() == null || mediaDTO.getId().trim().equals(""))? UUID.randomUUID().toString() : mediaDTO.getId();
 
         return new Media(id,
-                mediaDTO.label,
-                mediaDTO.category,
-                mediaDTO.type,
-                mediaDTO.authorName,
-                mediaDTO.authorSurname,
-                mediaDTO.description,
-                mediaDTO.mediaImageURL,
-                mediaDTO.publicationDate,
+                mediaDTO.getLabel(),
+                mediaDTO.getCategory(),
+                mediaDTO.getType(),
+                mediaDTO.getAuthorName(),
+                mediaDTO.getAuthorSurname(),
+                mediaDTO.getDescription(),
+                mediaDTO.getMediaImageURL(),
+                mediaDTO.getPublicationDate(),
                 null
         );
     }

@@ -1,6 +1,9 @@
 package com.bnpparibas.bddf.projet.media.exposition;
 
 import com.bnpparibas.bddf.projet.media.domain.User;
+import com.bnpparibas.bddf.projet.media.exposition.dto.MediaDTO;
+import com.bnpparibas.bddf.projet.media.exposition.dto.MediaNotationDTOMedia;
+import com.bnpparibas.bddf.projet.media.exposition.dto.UserDTO;
 
 import java.util.List;
 import java.util.Set;
@@ -11,16 +14,16 @@ public class UserAdapter {
     public UserAdapter() {}
 
     public static User transformToUser (UserDTO userDTO){
-        String id = (userDTO.id == null || userDTO.id.trim().equals(""))? UUID.randomUUID().toString() : userDTO.id;
+        String id = (userDTO.getId() == null || userDTO.getId().trim().equals(""))? UUID.randomUUID().toString() : userDTO.getId();
 
         return new User(id,
-                userDTO.login,
-                userDTO.password,
-                userDTO.userName,
-                userDTO.userSurname,
-                userDTO.avatarImageURL,
-                userDTO.email,
-                userDTO.active
+                userDTO.getLogin(),
+                userDTO.getPassword(),
+                userDTO.getUserName(),
+                userDTO.getUserSurname(),
+                userDTO.getAvatarImageURL(),
+                userDTO.getEmail(),
+                userDTO.isActive()
         );
     }
 

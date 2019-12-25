@@ -1,4 +1,4 @@
-package com.bnpparibas.bddf.projet.media.exposition;
+package com.bnpparibas.bddf.projet.media.exposition.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

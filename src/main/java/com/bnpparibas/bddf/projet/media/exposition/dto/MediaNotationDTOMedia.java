@@ -1,22 +1,22 @@
-package com.bnpparibas.bddf.projet.media.exposition;
+package com.bnpparibas.bddf.projet.media.exposition.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class MediaNotationDTOUser {
+public class MediaNotationDTOMedia {
     @JsonProperty
     Long id;
     @JsonProperty
     boolean liked;
     @JsonProperty
-    UserDTO userDTO;
+    MediaDTO mediaDTO;
 
-    public MediaNotationDTOUser() {
+    public MediaNotationDTOMedia() {
     }
 
-    public MediaNotationDTOUser(Long id, boolean liked, UserDTO userDTO) {
+    public MediaNotationDTOMedia(Long id, boolean liked, MediaDTO mediaDTO) {
         this.id = id;
         this.liked = liked;
-        this.userDTO = userDTO;
+        this.mediaDTO = mediaDTO;
     }
 
     public Long getId() {
@@ -27,7 +27,7 @@ public class MediaNotationDTOUser {
         return liked;
     }
 
-    public UserDTO getUserDTO() {
-        return userDTO;
+    public MediaDTO getMediaDTO() {
+        return mediaDTO;
     }
 }
