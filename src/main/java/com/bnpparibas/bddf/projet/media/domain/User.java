@@ -29,6 +29,11 @@ public class User {
         this.active = active;
     }
 
+    public User(String id, String login, boolean active) {
+        this.id = id;
+        this.login = login;
+        this.active = active;
+    }
     public User(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active, Set<MediaNotation> mediaNotations) {
         this.id = id;
         this.login = login;

@@ -24,8 +24,8 @@ public final class MediaAdapter {
                 mediaDTO.getDescription(),
                 mediaDTO.getMediaImageURL(),
                 mediaDTO.getPublicationDate(),
-                null
-        );
+                null,
+                null);
     }
 
     public static MediaDTO adaptToMediaDTO(Media media){
@@ -34,7 +34,17 @@ public final class MediaAdapter {
             mediaNotationDTOs = media.getMediaNotations().stream()
                     .map(mediaNotation -> new MediaNotationDTOUser(mediaNotation.getId(), mediaNotation.isLiked(),
                             new UserLightDTO(mediaNotation.getUser().getId(),
-                                    mediaNotation.getUser().getLogin())))
+                                    mediaNotation.getUser().getLogin(),
+                                    mediaNotation.getUser().isActive())))
+                    .collect(Collectors.toSet());
+        }
+        Set<ReviewDTO> reviewDTOS = null;
+        if (media.getReviews() != null) {
+            reviewDTOS = media.getReviews().stream()
+                    .map(review -> new ReviewDTO(review.getId(), review.getComment(), review.getReviewDate(), review.getUsefulNumber(), review.getUselessNumber(),
+                            new UserLightDTO(review.getUser().getId(),
+                                    review.getUser().getLogin(),
+                                    review.getUser().isActive())))
                     .collect(Collectors.toSet());
         }
         int likesNumber = media.getLikesNumber();
@@ -49,7 +59,8 @@ public final class MediaAdapter {
                 media.getPublicationDate(),
                 likesNumber,
                 media.getNotationNumber() - likesNumber,
-                mediaNotationDTOs);
+                mediaNotationDTOs,
+                reviewDTOS);
     }
 
     public static MediaLightDTO adaptToMediaLightDTO(Media media){

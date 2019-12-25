@@ -15,22 +15,31 @@ public class ReviewDTO {
     LocalDateTime reviewDate;
 
     @JsonProperty
-    int usefulTotalNumber;
+    int usefulNumber;
 
     @JsonProperty
-    int uselessTotalNumber;
+    int uselessNumber;
 
     @JsonProperty
-    UserDTO userDto;
+    UserLightDTO userDto;
 
     public ReviewDTO() { }
 
-    public ReviewDTO(String id, String comment, LocalDateTime reviewDate, int usefulTotalNumber, int uselessTotalNumber) {
+    public ReviewDTO(String id, String comment, LocalDateTime reviewDate, int usefulNumber, int uselessNumber) {
         this.id = id;
         this.comment = comment;
         this.reviewDate = reviewDate;
-        this.usefulTotalNumber = usefulTotalNumber;
-        this.uselessTotalNumber = uselessTotalNumber;
+        this.usefulNumber = usefulNumber;
+        this.uselessNumber = uselessNumber;
+    }
+
+    public ReviewDTO(String id, String comment, LocalDateTime reviewDate, int usefulNumber, int uselessNumber, UserLightDTO userDto) {
+        this.id = id;
+        this.comment = comment;
+        this.reviewDate = reviewDate;
+        this.usefulNumber = usefulNumber;
+        this.uselessNumber = uselessNumber;
+        this.userDto = userDto;
     }
 
     public String getId() {
@@ -45,11 +54,15 @@ public class ReviewDTO {
         return reviewDate;
     }
 
-    public int getUsefulTotalNumber() {
-        return usefulTotalNumber;
+    public int getUsefulNumber() {
+        return usefulNumber;
     }
 
-    public int getUselessTotalNumber() {
-        return uselessTotalNumber;
+    public int getUselessNumber() {
+        return uselessNumber;
+    }
+
+    public UserLightDTO getUserDto() {
+        return userDto;
     }
 }

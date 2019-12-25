@@ -44,6 +44,7 @@ public class UserAdapter {
                                     mediaNotation.getMedia().getPublicationDate(),
                                     0,
                                     0,
+                                    null,
                                     null)))
                     .collect(Collectors.toSet());
         }
@@ -61,7 +62,8 @@ public class UserAdapter {
 
     public static UserLightDTO adaptToUserLightDTO(User user){
        return new UserLightDTO(user.getId(),
-                user.getLogin());
+               user.getLogin(),
+               user.isActive());
     }
     public static List<UserLightDTO> adaptToUserLightDTOList(List<User> users){
         return users.stream()

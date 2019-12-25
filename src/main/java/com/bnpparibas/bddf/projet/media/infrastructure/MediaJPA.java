@@ -80,17 +80,21 @@ public class MediaJPA {
 
     public Media jpaToMedia(){
         Set<MediaNotation> mediaNotations = null;
-        if (this.getMediaNotationsJPA() != null) {
-            mediaNotations = this.getMediaNotationsJPA().stream()
+        if (this.mediaNotationsJPA != null) {
+            mediaNotations = this.mediaNotationsJPA.stream()
                     .map(mediaNotationJPA -> new MediaNotation(mediaNotationJPA.getNotationId(), null, mediaNotationJPA.isLiked(),
                             new User(mediaNotationJPA.getUserJPA().getId(),
                                     mediaNotationJPA.getUserJPA().getLogin(),
-                                    mediaNotationJPA.getUserJPA().getPassword(),
-                                    mediaNotationJPA.getUserJPA().getUserName(),
-                                    mediaNotationJPA.getUserJPA().getUserSurname(),
-                                    mediaNotationJPA.getUserJPA().getAvatarImageURL(),
-                                    mediaNotationJPA.getUserJPA().getEmail(),
                                     mediaNotationJPA.getUserJPA().isActive())))
+                    .collect(Collectors.toSet());
+        }
+        Set<Review> reviews = null;
+        if (this.reviewsJPA != null) {
+            reviews = this.reviewsJPA.stream()
+                    .map(reviewJPA -> new Review(reviewJPA.getId(), reviewJPA.getComment(), reviewJPA.getReviewDate(),null,
+                            new User(reviewJPA.getUserJPA().getId(),
+                                    reviewJPA.getUserJPA().getLogin(),
+                                    reviewJPA.getUserJPA().isActive())))
                     .collect(Collectors.toSet());
         }
         return new Media(this.getId(),
@@ -102,7 +106,7 @@ public class MediaJPA {
         this.getDescription(),
         this.getMediaImageURL(),
         this.getPublicationDate(),
-        mediaNotations);
+        mediaNotations, reviews);
     }
 
     public MediaJPA(Media media, Set<MediaNotationJPA> mediaNotationJPAS) {
@@ -150,5 +154,9 @@ public class MediaJPA {
 
     public Set<MediaNotationJPA> getMediaNotationsJPA() {
         return mediaNotationsJPA;
+    }
+
+    public Set<ReviewJPA> getReviewsJPA() {
+        return reviewsJPA;
     }
 }

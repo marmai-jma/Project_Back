@@ -11,11 +11,15 @@ public class UserLightDTO {
     @JsonProperty
     String login;
 
+    @JsonProperty
+    boolean active;
+
     public UserLightDTO() {}
 
-    public UserLightDTO(String id, String login) {
+    public UserLightDTO(String id, String login, boolean active) {
         this.id = id;
         this.login = login;
+        this.active = active;
     }
 
     public String getId() {
@@ -26,4 +30,7 @@ public class UserLightDTO {
         return login;
     }
 
+    public boolean isActive() {
+        return active;
+    }
 }

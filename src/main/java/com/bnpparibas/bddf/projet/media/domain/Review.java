@@ -47,5 +47,11 @@ public class Review {
         return user;
     }
 
-    //ici ajouter getter pour récupérer le nombre de usefull et le nombre de votes total quand la table des reviewNotations sera implémentée.
+    public int getUsefulNumber() {
+        return 0;
+    }
+
+    public int getUselessNumber() {
+        return 0;
+    }
 }

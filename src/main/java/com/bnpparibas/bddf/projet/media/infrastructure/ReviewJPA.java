@@ -66,4 +66,12 @@ public class ReviewJPA {
     public LocalDateTime getReviewDate() {
         return reviewDate;
     }
+
+    public MediaJPA getMediaJPA() {
+        return mediaJPA;
+    }
+
+    public UserJPA getUserJPA() {
+        return userJPA;
+    }
 }

@@ -47,7 +47,7 @@ public class MediaDTO {
 
     public MediaDTO() {}
 
-    public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, int likesTotalNumber, int dislikesTotalNumber, Set<MediaNotationDTOUser> mediaNotationsDTO) {
+    public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, int likesNumber, int dislikesNumber, Set<MediaNotationDTOUser> mediaNotationsDTO, Set<com.bnpparibas.bddf.projet.media.exposition.dto.ReviewDTO> reviewDTO) {
         this.id = id;
         this.label = label;
         this.category = category;
@@ -57,9 +57,10 @@ public class MediaDTO {
         this.description = description;
         this.mediaImageURL = mediaImageURL;
         this.publicationDate = publicationDate;
-        this.likesNumber = likesTotalNumber;
-        this.dislikesNumber = dislikesTotalNumber;
+        this.likesNumber = likesNumber;
+        this.dislikesNumber = dislikesNumber;
         this.mediaNotationsDTO = mediaNotationsDTO;
+        ReviewDTO = reviewDTO;
     }
 
     public MediaDTO(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, int likesTotalNumber, int dislikesTotalNumber) {

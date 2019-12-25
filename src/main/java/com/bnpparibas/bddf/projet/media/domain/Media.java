@@ -26,7 +26,7 @@ public class Media {
 
     public Media() {}
 
-    public Media(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, Set<MediaNotation> mediaNotations) {
+    public Media(String id, String label, Category category, Type type, String authorName, String authorSurname, String description, String mediaImageURL, LocalDate publicationDate, Set<MediaNotation> mediaNotations, Set<Review> reviews) {
         this.id = id;
         this.label = label;
         this.category = category;
@@ -37,6 +37,8 @@ public class Media {
         this.mediaImageURL = mediaImageURL;
         this.publicationDate = publicationDate;
         this.mediaNotations = mediaNotations;
+        this.reviews = reviews;
+
     }
 
     public void update(Media mediaToUpdate){
@@ -98,5 +100,9 @@ public class Media {
 
     public Set<MediaNotation> getMediaNotations() {
         return mediaNotations;
+    }
+
+    public Set<Review> getReviews() {
+        return reviews;
     }
 }
