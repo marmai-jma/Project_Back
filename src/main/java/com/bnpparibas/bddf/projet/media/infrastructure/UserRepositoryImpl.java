@@ -49,6 +49,13 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    public User findByLogin(String login) {
+        return userDAO.findByLogin(login)
+                .map(userJPA -> userJPA.jpatoUser())
+                .orElseThrow(() -> new ProjectApplicationException(ErrorCodes.NOT_FOUND));
+    }
+
+    @Override
     public void delete(String id) {
             userDAO.deleteById(id);
         }

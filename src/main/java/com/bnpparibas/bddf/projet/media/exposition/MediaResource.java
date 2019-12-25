@@ -1,8 +1,7 @@
 package com.bnpparibas.bddf.projet.media.exposition;
 
 import com.bnpparibas.bddf.projet.media.application.MediaService;
-import com.bnpparibas.bddf.projet.media.exposition.dto.MediaDTO;
-import com.bnpparibas.bddf.projet.media.exposition.dto.MediaLightDTO;
+import com.bnpparibas.bddf.projet.media.exposition.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -41,5 +40,15 @@ public class MediaResource {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeMedia(@PathVariable("mediaId") String mediaId) {
         this.mediaService.remove(mediaId);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, path = {"/medias/{mediaId}/notation/{userLogin}"})
+    public void addNotation(@PathVariable("mediaId") String mediaId, @RequestBody MediaNotationFormDTO mediaNotationFormDTO, @PathVariable("userLogin") String userLogin) {
+        this.mediaService.addNotation(mediaId, mediaNotationFormDTO.isLiked(), userLogin);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, path = {"/medias/{mediaId}/review/{userLogin}"})
+    public void addNotation(@PathVariable("mediaId") String mediaId, @RequestBody ReviewFormDTO reviewFormDTO, @PathVariable("userLogin") String userLogin) {
+        this.mediaService.addReview(mediaId, reviewFormDTO.getComment(), userLogin);
     }
 }

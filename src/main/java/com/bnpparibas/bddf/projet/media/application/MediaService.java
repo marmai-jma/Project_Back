@@ -1,7 +1,6 @@
 package com.bnpparibas.bddf.projet.media.application;
 
-import com.bnpparibas.bddf.projet.media.domain.Media;
-import com.bnpparibas.bddf.projet.media.domain.MediaRepository;
+import com.bnpparibas.bddf.projet.media.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +12,13 @@ import java.util.List;
 public class MediaService {
     @Autowired
     private MediaRepository mediaRepository;
+    @Autowired
+    private MediaNotationRepository mediaNotationRepository;
+    @Autowired
+    private ReviewRepository reviewRepository;
+    @Autowired
+    private UserRepository userRepository;
+
 
     public String create(Media newMedia){
         return this.mediaRepository.save(newMedia);
@@ -35,5 +41,13 @@ public class MediaService {
     public void remove(String id){
         obtain(id);
         this.mediaRepository.delete(id);
+    }
+
+    public void addNotation(String mediaId, Boolean liked, String userLogin){
+        mediaNotationRepository.saveOrUpdate(mediaId, liked, userRepository.findByLogin(userLogin).getId());
+    }
+
+    public void addReview(String mediaId, String comment, String userLogin){
+        reviewRepository.saveOrUpdate(mediaId, comment, userRepository.findByLogin(userLogin).getId());
     }
 }

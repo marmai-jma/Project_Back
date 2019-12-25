@@ -15,7 +15,7 @@ public class UserJPA {
     @Column(name = "ID")
     private String id;
 
-    @Column(name = "LOGIN")
+    @Column(name = "LOGIN", unique = true)
     private String login;
 
     @Column(name = "PASSWORD")

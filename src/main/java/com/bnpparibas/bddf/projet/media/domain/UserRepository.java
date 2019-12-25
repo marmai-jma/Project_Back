@@ -7,5 +7,6 @@ public interface UserRepository {
     String update(User user);
     User get(String id);
     List<User> findAll();
+    User findByLogin(String login);
     void delete(String id);
 }

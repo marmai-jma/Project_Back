@@ -14,6 +14,21 @@ import java.util.stream.Collectors;
 public class ReviewRepositoryImpl implements ReviewRepository {
     @Autowired
     private ReviewDAO reviewDAO;
+    @Autowired
+    private MediaDAO mediaDAO;
+    @Autowired
+    private UserDAO userDAO;
+
+    @Override
+    public void saveOrUpdate(String mediaId, String comment, String userId) {
+            ReviewJPA reviewJPA = reviewDAO.searchByMediaIdUserId(mediaId, userId);
+            if (reviewJPA != null) {
+                reviewJPA.setComment(comment);
+                reviewDAO.save(reviewJPA);
+            } else {
+                reviewDAO.save(new ReviewJPA(comment, mediaDAO.findById(mediaId).get(), userDAO.findById(userId).get()));
+            }
+    }
 
     @Override
     public String save(Review review) {

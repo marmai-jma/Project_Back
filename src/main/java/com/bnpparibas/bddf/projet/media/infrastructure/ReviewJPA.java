@@ -4,11 +4,9 @@ import com.bnpparibas.bddf.projet.media.domain.Review;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity(name = "REVIEW")
 public class ReviewJPA {
@@ -36,6 +34,14 @@ public class ReviewJPA {
         this.id = id;
         this.comment = comment;
         this.reviewDate = reviewDate;
+        this.mediaJPA = mediaJPA;
+        this.userJPA = userJPA;
+    }
+
+    public ReviewJPA(String comment, MediaJPA mediaJPA, UserJPA userJPA) {
+        this.id = UUID.randomUUID().toString();
+        this.comment = comment;
+        this.reviewDate = LocalDateTime.now();
         this.mediaJPA = mediaJPA;
         this.userJPA = userJPA;
     }
@@ -73,5 +79,9 @@ public class ReviewJPA {
 
     public UserJPA getUserJPA() {
         return userJPA;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

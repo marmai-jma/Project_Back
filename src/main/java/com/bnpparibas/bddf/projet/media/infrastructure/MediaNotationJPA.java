@@ -36,6 +36,11 @@ public class MediaNotationJPA {
         this.userJPA = userJPA;
     }
 
+    public MediaNotationJPA(MediaJPA mediaJPA, boolean liked, UserJPA userJPA) {
+        this.mediaJPA = mediaJPA;
+        this.liked = liked;
+        this.userJPA = userJPA;
+    }
     public MediaJPA getMediaJPA() {
         return mediaJPA;
     }
