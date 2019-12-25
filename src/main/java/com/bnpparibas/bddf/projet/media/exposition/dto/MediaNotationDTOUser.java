@@ -8,12 +8,12 @@ public class MediaNotationDTOUser {
     @JsonProperty
     boolean liked;
     @JsonProperty
-    UserDTO userDTO;
+    UserLightDTO userDTO;
 
     public MediaNotationDTOUser() {
     }
 
-    public MediaNotationDTOUser(Long id, boolean liked, UserDTO userDTO) {
+    public MediaNotationDTOUser(Long id, boolean liked, UserLightDTO userDTO) {
         this.id = id;
         this.liked = liked;
         this.userDTO = userDTO;
@@ -27,7 +27,7 @@ public class MediaNotationDTOUser {
         return liked;
     }
 
-    public UserDTO getUserDTO() {
+    public UserLightDTO getUserDTO() {
         return userDTO;
     }
 }

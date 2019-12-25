@@ -2,6 +2,7 @@ package com.bnpparibas.bddf.projet.media.exposition;
 
 import com.bnpparibas.bddf.projet.media.application.UserService;
 import com.bnpparibas.bddf.projet.media.exposition.dto.UserDTO;
+import com.bnpparibas.bddf.projet.media.exposition.dto.UserLightDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +16,8 @@ public class UserResource {
     private UserService userService;
 
         @RequestMapping(method= RequestMethod.GET, path={"/users"})
-        public List<UserDTO> listAllUsers(){
-            return UserAdapter.adaptToUserDTOList(this.userService.listAll());
+        public List<UserLightDTO> listAllUsers(){
+            return UserAdapter.adaptToUserLightDTOList(this.userService.listAll());
         }
 
         @RequestMapping(method = RequestMethod.GET, path = {"/users/{userId}"})

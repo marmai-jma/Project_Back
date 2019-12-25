@@ -4,6 +4,7 @@ import com.bnpparibas.bddf.projet.media.domain.User;
 import com.bnpparibas.bddf.projet.media.exposition.dto.MediaDTO;
 import com.bnpparibas.bddf.projet.media.exposition.dto.MediaNotationDTOMedia;
 import com.bnpparibas.bddf.projet.media.exposition.dto.UserDTO;
+import com.bnpparibas.bddf.projet.media.exposition.dto.UserLightDTO;
 
 import java.util.List;
 import java.util.Set;
@@ -58,9 +59,13 @@ public class UserAdapter {
                 mediaNotationDTOMedia);
     }
 
-    public static List<UserDTO> adaptToUserDTOList(List<User> users){
+    public static UserLightDTO adaptToUserLightDTO(User user){
+       return new UserLightDTO(user.getId(),
+                user.getLogin());
+    }
+    public static List<UserLightDTO> adaptToUserLightDTOList(List<User> users){
         return users.stream()
-                .map(user -> adaptToUserDTO(user))
+                .map(user -> adaptToUserLightDTO(user))
                 .collect(Collectors.toList());
     }
 }

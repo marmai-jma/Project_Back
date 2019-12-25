@@ -1,10 +1,7 @@
 package com.bnpparibas.bddf.projet.media.exposition;
 
 import com.bnpparibas.bddf.projet.media.domain.Media;
-import com.bnpparibas.bddf.projet.media.exposition.dto.MediaDTO;
-import com.bnpparibas.bddf.projet.media.exposition.dto.MediaLightDTO;
-import com.bnpparibas.bddf.projet.media.exposition.dto.MediaNotationDTOUser;
-import com.bnpparibas.bddf.projet.media.exposition.dto.UserDTO;
+import com.bnpparibas.bddf.projet.media.exposition.dto.*;
 
 import java.util.List;
 import java.util.Set;
@@ -36,14 +33,8 @@ public final class MediaAdapter {
         if (media.getMediaNotations() != null) {
             mediaNotationDTOs = media.getMediaNotations().stream()
                     .map(mediaNotation -> new MediaNotationDTOUser(mediaNotation.getId(), mediaNotation.isLiked(),
-                            new UserDTO(mediaNotation.getUser().getId(),
-                                    mediaNotation.getUser().getLogin(),
-                                    mediaNotation.getUser().getPassword(),
-                                    mediaNotation.getUser().getUserName(),
-                                    mediaNotation.getUser().getUserSurname(),
-                                    mediaNotation.getUser().getAvatarImageURL(),
-                                    mediaNotation.getUser().getEmail(),
-                                    mediaNotation.getUser().isActive(), null)))
+                            new UserLightDTO(mediaNotation.getUser().getId(),
+                                    mediaNotation.getUser().getLogin())))
                     .collect(Collectors.toSet());
         }
         int likesNumber = media.getLikesNumber();
