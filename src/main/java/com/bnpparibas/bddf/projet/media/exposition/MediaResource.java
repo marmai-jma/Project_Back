@@ -15,8 +15,8 @@ public class MediaResource {
     private MediaService mediaService;
 
     @RequestMapping(method= RequestMethod.GET, path={"/medias"})
-    public List<MediaDTO> listAllMedias(){
-        return MediaAdapter.adaptToMediaDTOList(this.mediaService.listAll());
+    public List<MediaLightDTO> listAllMedias(){
+        return MediaAdapter.adaptToMediaLightDTOList(this.mediaService.listAll());
     }
 
     @RequestMapping(method = RequestMethod.GET, path = {"/medias/{mediaId}"})

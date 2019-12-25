@@ -22,9 +22,14 @@ public class ReviewRepositoryImpl implements ReviewRepository {
     }
 
     @Override
+    public String update(Review review) {
+        return null;
+    }
+
+    @Override
     public Review get(String id) {
         return reviewDAO.findById(id)
-                .map(reviewJPA -> reviewJPA.toReview())
+                .map(reviewJPA -> reviewJPA.jpaToReview())
                 .orElseThrow(() -> new ProjectApplicationException(ErrorCodes.NOT_FOUND));
     }
 
@@ -33,7 +38,7 @@ public class ReviewRepositoryImpl implements ReviewRepository {
         return reviewDAO
                 .findAll()
                 .stream()
-                .map(reviewJPA -> reviewJPA.toReview())
+                .map(reviewJPA -> reviewJPA.jpaToReview())
                 .collect(Collectors.toList());
     }
 

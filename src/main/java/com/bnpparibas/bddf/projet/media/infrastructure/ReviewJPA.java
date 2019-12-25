@@ -32,22 +32,26 @@ public class ReviewJPA {
 
     public ReviewJPA() { }
 
-    public ReviewJPA(String id, String comment, LocalDateTime reviewDate) {
+    public ReviewJPA(String id, String comment, LocalDateTime reviewDate, MediaJPA mediaJPA, UserJPA userJPA) {
         this.id = id;
         this.comment = comment;
         this.reviewDate = reviewDate;
+        this.mediaJPA = mediaJPA;
+        this.userJPA = userJPA;
     }
 
     public ReviewJPA(Review review) {
         this.id = review.getId();
         this.comment = review.getComment();
         this.reviewDate = review.getReviewDate();
+        this.mediaJPA = new MediaJPA (review.getMedia());
+        this.userJPA = new UserJPA(review.getUser());
     }
 
-    public Review toReview() {
-        return new Review(this.id,
-                this.comment,
-                this.reviewDate);
+
+    public Review jpaToReview() {
+
+        return new Review(this.id, this.comment, this.reviewDate, this.mediaJPA.jpaToMedia(), this.userJPA.jpatoUser());
     }
 
 

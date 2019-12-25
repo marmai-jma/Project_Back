@@ -6,23 +6,25 @@ public class Review {
     private String id;
     private String comment;
     private LocalDateTime reviewDate;
-    private int usefulTotalNumber = 0;
-    private int uselessTotalNumber = 0;
     private Media media;
     private User user;
 
 
     public Review() {}
 
-    public Review(String id, String comment, LocalDateTime reviewDate) {
+    public Review(String id, String comment, LocalDateTime reviewDate, Media media, User user) {
         this.id = id;
         this.comment = comment;
         this.reviewDate = reviewDate;
+        this.media = media;
+        this.user = user;
     }
 
     public void update(Review reviewToUpdate) {
         this.comment = reviewToUpdate.getComment();
         this.reviewDate = reviewToUpdate.getReviewDate();
+        this.media = reviewToUpdate.getMedia();
+        this.user = reviewToUpdate.getUser();
     }
 
     public String getId() {
@@ -37,11 +39,13 @@ public class Review {
         return reviewDate;
     }
 
-    public int getUsefulTotalNumber() {
-        return usefulTotalNumber;
+    public Media getMedia() {
+        return media;
     }
 
-    public int getUselessTotalNumber() {
-        return uselessTotalNumber;
+    public User getUser() {
+        return user;
     }
+
+    //ici ajouter getter pour récupérer le nombre de usefull et le nombre de votes total quand la table des reviewNotations sera implémentée.
 }

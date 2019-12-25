@@ -1,14 +1,12 @@
 package com.bnpparibas.bddf.projet.media.exposition;
 
 import com.bnpparibas.bddf.projet.media.domain.Media;
-import com.bnpparibas.bddf.projet.media.domain.MediaNotation;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 public final class MediaAdapter {
     private MediaAdapter() {}
@@ -59,9 +57,24 @@ public final class MediaAdapter {
                 mediaNotationDTOs);
     }
 
-    public static List<MediaDTO> adaptToMediaDTOList(List<Media> medias){
+    public static MediaLightDTO adaptToMediaLightDTO(Media media){
+        int likesNumber = media.getLikesNumber();
+        return new MediaLightDTO(media.getId(),
+                media.getLabel(),
+                media.getCategory(),
+                media.getType(),
+                media.getAuthorName(),
+                media.getAuthorSurname(),
+                media.getDescription(),
+                media.getMediaImageURL(),
+                media.getPublicationDate(),
+                likesNumber,
+                media.getNotationNumber() - likesNumber);
+    }
+
+    public static List<MediaLightDTO> adaptToMediaLightDTOList(List<Media> medias){
         return medias.stream()
-                .map(media -> adaptToMediaDTO(media))
+                .map(media -> adaptToMediaLightDTO(media))
                 .collect(Collectors.toList());
     }
 }

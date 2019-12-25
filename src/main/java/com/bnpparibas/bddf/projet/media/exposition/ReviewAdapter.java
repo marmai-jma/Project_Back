@@ -13,15 +13,13 @@ public class ReviewAdapter {
 
         return new Review(id,
                reviewDTO.comment,
-                reviewDTO.reviewDate);
+                reviewDTO.reviewDate,null,null);
     }
 
     public static ReviewDTO adaptToReviewDTO(Review review){
         return new ReviewDTO(review.getId(),
                 review.getComment(),
-                review.getReviewDate(),
-                review.getUsefulTotalNumber(),
-                review.getUselessTotalNumber()
+                review.getReviewDate(),0,0
         );
     }
 

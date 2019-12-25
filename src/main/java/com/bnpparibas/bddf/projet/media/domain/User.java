@@ -42,6 +42,7 @@ public class User {
     }
 
     public void update(User userToUpdate){
+        this.login = userToUpdate.getLogin();
         this.password=userToUpdate.getPassword();
         this.userName=userToUpdate.getUserName();
         this.userSurname=userToUpdate.getUserSurname();

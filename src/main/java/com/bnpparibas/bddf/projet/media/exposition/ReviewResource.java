@@ -18,11 +18,12 @@ public class ReviewResource {
         return ReviewAdapter.adaptToReviewDTOList(this.reviewService.listAll());
     }
 
+
     @RequestMapping(method = RequestMethod.GET, path = {"/reviews/{reviewId}"})
     public ReviewDTO detailReview(@PathVariable("reviewId") String reviewId ){
         return ReviewAdapter.adaptToReviewDTO(this.reviewService.obtain(reviewId));
     }
-
+/*
     @RequestMapping(method = RequestMethod.POST, path = {"/reviews"})
     @ResponseStatus(HttpStatus.CREATED)
     public void createReview(@Valid @RequestBody ReviewDTO reviewDTO) {
@@ -33,7 +34,7 @@ public class ReviewResource {
     public void updateReview(@PathVariable("reviewId") String reviewId, @RequestBody ReviewDTO reviewDTO) {
         this.reviewService.update(reviewId, ReviewAdapter.transformToReview(reviewDTO));
     }
-
+*/
     @RequestMapping(method = RequestMethod.DELETE, path = {"/reviews/{reviewId}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeReview(@PathVariable("reviewId") String reviewId) {

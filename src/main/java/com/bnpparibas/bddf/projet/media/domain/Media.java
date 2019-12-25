@@ -82,14 +82,14 @@ public class Media {
     public LocalDate getPublicationDate() { return publicationDate; }
 
     public int getLikesNumber() {
-        int tmp = 0;
+        int likesNumber = 0;
         if (this.mediaNotations != null) {
             for (MediaNotation mediaNotation : this.mediaNotations) {
                 if (mediaNotation.isLiked())
-                    tmp++;
+                    likesNumber++;
             }
         }
-        return tmp;
+        return likesNumber;
     }
 
     public int getNotationNumber() {
