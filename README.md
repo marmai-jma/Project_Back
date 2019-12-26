@@ -15,3 +15,5 @@ API mise à disposition du front:
 - GET/medias/{mediaID} : renvoie les informations d'un média, la liste des reviews associées à ce média et la liste des likes/dislikes. Cette API permet d'alimenter toutes les informations de DetailComponent.
 - POST/medias/{mediaID}/notation{userLogin} permet d'enregistrer ou de modifier la notation like / dislike d'un utilisateur identifié par son login sur un média donné. Cette API est à appeler pour gérer likeComponent.
 - POST/medias/{mediaId}/review/{userLogin} permet d'enregistrer ou de modifier l'avis (review) d'un utilisateur sur un média. Cette API est utilisée lors d'un submit sur enregistrer de PersonalReviewComponent.
+
+La création de média ne fait pas partie de la version du projet livrée dans le premier Sprint. Pour cette raison un fichier data.sql est mis à disposition pour permettre de tester et d'utiliser l'application. 

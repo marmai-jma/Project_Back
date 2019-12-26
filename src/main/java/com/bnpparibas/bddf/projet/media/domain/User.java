@@ -15,6 +15,7 @@ public class User {
     private String email;
     private boolean active;
     private Set<MediaNotation> mediaNotations;
+    private Set<ReviewNotation> reviewNotations;
 
     public User() {}
 
@@ -86,6 +87,10 @@ public class User {
 
     public boolean isActive() {
         return active;
+    }
+
+    public Set<ReviewNotation> getReviewNotations() {
+        return reviewNotations;
     }
 
     public Set<MediaNotation> getMediaNotations() {

@@ -104,9 +104,6 @@ public class UserJPA {
                 this.getEmail(),
                 this.isActive(),
                 mediaNotations);
-
-
-
     }
 
     public Long getId() {

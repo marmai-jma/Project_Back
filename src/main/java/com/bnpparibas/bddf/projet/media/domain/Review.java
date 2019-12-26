@@ -1,6 +1,7 @@
 package com.bnpparibas.bddf.projet.media.domain;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 public class Review {
     private Long id;
@@ -8,6 +9,7 @@ public class Review {
     private LocalDateTime reviewDate;
     private Media media;
     private User user;
+    private Set<ReviewNotation> reviewsNotations;
 
 
     public Review() {}
