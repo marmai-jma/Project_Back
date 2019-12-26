@@ -20,24 +20,13 @@ public class ReviewResource {
 
 
     @RequestMapping(method = RequestMethod.GET, path = {"/reviews/{reviewId}"})
-    public ReviewDTO detailReview(@PathVariable("reviewId") long reviewId ){
+    public ReviewDTO detailReview(@PathVariable("reviewId") Long reviewId ){
         return ReviewAdapter.adaptToReviewDTO(this.reviewService.obtain(reviewId));
     }
-/*
-    @RequestMapping(method = RequestMethod.POST, path = {"/reviews"})
-    @ResponseStatus(HttpStatus.CREATED)
-    public void createReview(@Valid @RequestBody ReviewDTO reviewDTO) {
-        this.reviewService.create(ReviewAdapter.transformToReview(reviewDTO));
-    }
 
-    @RequestMapping(method = RequestMethod.PUT, path = {"/reviews/{reviewId}"})
-    public void updateReview(@PathVariable("reviewId") String reviewId, @RequestBody ReviewDTO reviewDTO) {
-        this.reviewService.update(reviewId, ReviewAdapter.transformToReview(reviewDTO));
-    }
-*/
     @RequestMapping(method = RequestMethod.DELETE, path = {"/reviews/{reviewId}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removeReview(@PathVariable("reviewId") long reviewId) {
+    public void removeReview(@PathVariable("reviewId") Long reviewId) {
         this.reviewService.remove(reviewId);
     }
 }

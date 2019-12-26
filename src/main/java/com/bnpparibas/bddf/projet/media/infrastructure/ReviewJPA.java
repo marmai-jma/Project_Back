@@ -13,7 +13,7 @@ public class ReviewJPA {
     @Id
     @GeneratedValue()
     @Column(name = "ID")
-    private long id;
+    private Long id;
     @Column(name = "COMMENT")
     private String comment;
     @Column(name = "REVIEW_DATE")
@@ -30,7 +30,7 @@ public class ReviewJPA {
 
     public ReviewJPA() { }
 
-    public ReviewJPA(long id, String comment, LocalDateTime reviewDate, MediaJPA mediaJPA, UserJPA userJPA) {
+    public ReviewJPA(Long id, String comment, LocalDateTime reviewDate, MediaJPA mediaJPA, UserJPA userJPA) {
         this.id = id;
         this.comment = comment;
         this.reviewDate = reviewDate;
@@ -61,7 +61,7 @@ public class ReviewJPA {
     }
 
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

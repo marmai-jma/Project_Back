@@ -39,7 +39,7 @@ public class ReviewRepositoryImpl implements ReviewRepository {
 
 
     @Override
-    public Review get(long id) {
+    public Review get(Long id) {
         return reviewDAO.findById(id)
                 .map(reviewJPA -> reviewJPA.jpaToReview())
                 .orElseThrow(() -> new ProjectApplicationException(ErrorCodes.NOT_FOUND));
@@ -55,7 +55,7 @@ public class ReviewRepositoryImpl implements ReviewRepository {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(Long id) {
         reviewDAO.deleteById(id);
     }
 }

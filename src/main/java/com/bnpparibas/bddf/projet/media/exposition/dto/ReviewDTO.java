@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public class ReviewDTO {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    long id;
+    Long id;
 
     @JsonProperty
     String comment;

@@ -3,7 +3,7 @@ package com.bnpparibas.bddf.projet.media.domain;
 import java.time.LocalDateTime;
 
 public class Review {
-    private long id;
+    private Long id;
     private String comment;
     private LocalDateTime reviewDate;
     private Media media;
