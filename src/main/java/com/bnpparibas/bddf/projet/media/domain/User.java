@@ -91,4 +91,8 @@ public class User {
     public Set<MediaNotation> getMediaNotations() {
         return mediaNotations;
     }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 }

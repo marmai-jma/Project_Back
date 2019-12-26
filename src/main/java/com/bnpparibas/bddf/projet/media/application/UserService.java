@@ -33,7 +33,8 @@ public class UserService {
     }
 
     public void remove(String id){
-        obtain(id);
-        this.userRepository.delete(id);
+        User user = obtain(id);
+        user.setActive(false);
+        this.userRepository.update(user);
     }
 }
