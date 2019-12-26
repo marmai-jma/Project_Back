@@ -94,7 +94,7 @@ public class Media {
         return likesNumber;
     }
 
-    public int getNotationNumber() {
+    public int getMediaNotationNumber() {
         return (this.mediaNotations == null) ? 0 : this.mediaNotations.size();
     }
 

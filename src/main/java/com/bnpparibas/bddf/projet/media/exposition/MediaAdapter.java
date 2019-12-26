@@ -41,7 +41,7 @@ public final class MediaAdapter {
         Set<ReviewDTO> reviewDTOS = null;
         if (media.getReviews() != null) {
             reviewDTOS = media.getReviews().stream()
-                    .map(review -> new ReviewDTO(review.getId(), review.getComment(), review.getReviewDate(), review.getUsefulNumber(), review.getUselessNumber(),
+                    .map(review -> new ReviewDTO(review.getId(), review.getComment(), review.getReviewDate(), review.getUsefulNumber(), review.getReviewNotationNumber() - review.getUsefulNumber(),
                             new UserLightDTO(review.getUser().getId(),
                                     review.getUser().getLogin(),
                                     review.getUser().isActive())))
@@ -58,7 +58,7 @@ public final class MediaAdapter {
                 media.getMediaImageURL(),
                 media.getPublicationDate(),
                 likesNumber,
-                media.getNotationNumber() - likesNumber,
+                media.getMediaNotationNumber() - likesNumber,
                 mediaNotationDTOs,
                 reviewDTOS);
     }
@@ -75,7 +75,7 @@ public final class MediaAdapter {
                 media.getMediaImageURL(),
                 media.getPublicationDate(),
                 likesNumber,
-                media.getNotationNumber() - likesNumber);
+                media.getMediaNotationNumber() - likesNumber);
     }
 
     public static List<MediaLightDTO> adaptToMediaLightDTOList(List<Media> medias){

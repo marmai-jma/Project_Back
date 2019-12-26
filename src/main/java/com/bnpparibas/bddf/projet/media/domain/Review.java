@@ -9,7 +9,7 @@ public class Review {
     private LocalDateTime reviewDate;
     private Media media;
     private User user;
-    private Set<ReviewNotation> reviewsNotations;
+    private Set<ReviewNotation> reviewNotations;
 
 
     public Review() {}
@@ -50,10 +50,18 @@ public class Review {
     }
 
     public int getUsefulNumber() {
-        return 0;
+        int usefulNumber = 0;
+        if (this.reviewNotations != null) {
+            for (ReviewNotation reviewNotation : this.reviewNotations) {
+                if (reviewNotation.isUseful())
+                    usefulNumber++;
+            }
+        }
+        return usefulNumber;
     }
 
-    public int getUselessNumber() {
-        return 0;
+    public int getReviewNotationNumber() {
+        return (this.reviewNotations == null) ? 0 : this.reviewNotations.size();
     }
+
 }
