@@ -8,5 +8,5 @@ package com.bnpparibas.bddf.projet.media.infrastructure;
 public interface MediaNotationDAO extends JpaRepository<MediaNotationJPA, String> {
 
     @Query(value = "SELECT * FROM MEDIA_NOTATION WHERE MEDIAJPA_ID = :mediaId AND  USERJPA_ID = :userId", nativeQuery = true)
-    MediaNotationJPA searchByMediaIdUserId(String mediaId, String userId);
+    MediaNotationJPA searchByMediaIdUserId(String mediaId, Long userId);
 }

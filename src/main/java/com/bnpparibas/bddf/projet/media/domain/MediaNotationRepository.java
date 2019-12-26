@@ -4,5 +4,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MediaNotationRepository {
-    void saveOrUpdate(String mediaId, boolean liked, String userId);
+    void saveOrUpdate(String mediaId, boolean liked, Long userId);
 }

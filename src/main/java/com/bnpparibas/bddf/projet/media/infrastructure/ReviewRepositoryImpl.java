@@ -20,7 +20,7 @@ public class ReviewRepositoryImpl implements ReviewRepository {
     private UserDAO userDAO;
 
     @Override
-    public void saveOrUpdate(String mediaId, String comment, String userId) {
+    public void saveOrUpdate(String mediaId, String comment, Long userId) {
             ReviewJPA reviewJPA = reviewDAO.searchByMediaIdUserId(mediaId, userId);
             if (reviewJPA != null) {
                 reviewJPA.setComment(comment);

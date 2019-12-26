@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class User {
-    private String id;
+    private Long id;
     private String login;
     private String password;
     private String userName;
@@ -18,7 +18,7 @@ public class User {
 
     public User() {}
 
-    public User(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active) {
+    public User(Long id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -29,12 +29,12 @@ public class User {
         this.active = active;
     }
 
-    public User(String id, String login, boolean active) {
+    public User(Long id, String login, boolean active) {
         this.id = id;
         this.login = login;
         this.active = active;
     }
-    public User(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active, Set<MediaNotation> mediaNotations) {
+    public User(Long id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active, Set<MediaNotation> mediaNotations) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -56,7 +56,7 @@ public class User {
         this.active=userToUpdate.isActive();
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 

@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class UserDTO {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    String id;
+    Long id;
 
     @JsonProperty
     String login;
@@ -34,7 +34,7 @@ public class UserDTO {
 
     public UserDTO() {}
 
-    public UserDTO(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active, Set<MediaNotationDTOMedia> mediaNotationsDTO) {
+    public UserDTO(Long id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active, Set<MediaNotationDTOMedia> mediaNotationsDTO) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -46,7 +46,7 @@ public class UserDTO {
         this.mediaNotationsDTO = mediaNotationsDTO;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 

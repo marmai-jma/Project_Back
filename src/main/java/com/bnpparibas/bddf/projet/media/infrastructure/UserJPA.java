@@ -11,9 +11,9 @@ import java.util.stream.Collectors;
 @Entity(name = "USER")
 public class UserJPA {
     @Id
-    //@GeneratedValue()
+    @GeneratedValue()
     @Column(name = "ID")
-    private String id;
+    private Long id;
 
     @Column(name = "LOGIN", unique = true)
     private String login;
@@ -42,7 +42,7 @@ public class UserJPA {
 
     public UserJPA() { }
 
-    public UserJPA(String id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active) {
+    public UserJPA(Long id, String login, String password, String userName, String userSurname, String avatarImageURL, String email, boolean active) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -109,7 +109,7 @@ public class UserJPA {
 
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 

@@ -11,28 +11,37 @@ INSERT INTO MEDIA (ID, LABEL, CATEGORY, TYPE, AUTHOR_NAME, AUTHOR_SURNAME, DESCR
 VALUES ('4', 'Le seigneur des anneaux','LIVRE', 'FANTASY', 'Tolkien','J.R.R','Roman en 3 prenant place dans le monde de fiction de la Terre du Milieu, il suit la quête du hobbit Frodo Bessac, qui doit détruire l''Anneau unique afin que celui-ci ne tombe pas entre les mains de Sauron, le Seigneur des ténèbres.','https://images.fr.shopping.rakuten.com/photo/1270487382.jpg','1954-07-29');
 
 INSERT INTO USER (ID, LOGIN, PASSWORD, USER_NAME, USER_SURNAME, AVATAR_IMAGE_URL, EMAIL, ACTIVE)
-VALUES ('1','Bilbo123','','John','Doe', 'https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple-300x277.jpg','john.doe@gmail.com','TRUE');
+VALUES ('99991','Bilbo123','','John','Doe', 'https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple-300x277.jpg','john.doe@gmail.com','TRUE');
 
 INSERT INTO USER (ID, LOGIN, PASSWORD,USER_NAME, USER_SURNAME, AVATAR_IMAGE_URL, EMAIL,ACTIVE)
-VALUES ('2','Bebe Yoda','','Anne','Honime', 'https://s1.thcdn.com//productimg/1600/1600/12376863-2094725918660345.jpg','a.honime@gmail.com','TRUE');
+VALUES ('99992','Bebe Yoda','','Anne','Honime', 'https://s1.thcdn.com//productimg/1600/1600/12376863-2094725918660345.jpg','a.honime@gmail.com','TRUE');
 
 INSERT INTO USER (ID, LOGIN, PASSWORD,USER_NAME, USER_SURNAME, AVATAR_IMAGE_URL, EMAIL,ACTIVE)
-VALUES ('3','moi','','password','', 'https://s1.thcdn.com//productimg/1600/1600/12376863-2094725918660345.jpg','a.honime@gmail.com','TRUE');
+VALUES ('99993','moi','','password','', 'https://s1.thcdn.com//productimg/1600/1600/12376863-2094725918660345.jpg','a.honime@gmail.com','TRUE');
+
+INSERT INTO USER (ID, LOGIN, PASSWORD, USER_NAME, USER_SURNAME, AVATAR_IMAGE_URL, EMAIL, ACTIVE)
+VALUES ('99994','UserTest1A','','Alpha','Beta', 'https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple-300x277.jpg','john.doe@gmail.com','TRUE');
+
+INSERT INTO USER (ID, LOGIN, PASSWORD,USER_NAME, USER_SURNAME, AVATAR_IMAGE_URL, EMAIL,ACTIVE)
+VALUES ('99995','UserTest2A','','Gamma','Delta', 'https://s1.thcdn.com//productimg/1600/1600/12376863-2094725918660345.jpg','a.honime@gmail.com','TRUE');
+
+INSERT INTO USER (ID, LOGIN, PASSWORD,USER_NAME, USER_SURNAME, AVATAR_IMAGE_URL, EMAIL,ACTIVE)
+VALUES ('99996','UserTest3I','password','Epsilon','Sigma', 'https://s1.thcdn.com//productimg/1600/1600/12376863-2094725918660345.jpg','a.honime@gmail.com','TRUE');
 
 INSERT INTO MEDIA_NOTATION (NOTATION_ID, LIKED, MEDIAJPA_ID, USERJPA_ID)
-VALUES (9991, 'TRUE', '1', '1');
+VALUES (9991, 'TRUE', '1', '99991');
 
 INSERT INTO MEDIA_NOTATION (NOTATION_ID, LIKED, MEDIAJPA_ID, USERJPA_ID)
-VALUES (9992, 'FALSE', '2', '1');
+VALUES (9992, 'FALSE', '2', '99991');
 
 INSERT INTO MEDIA_NOTATION (NOTATION_ID, LIKED, MEDIAJPA_ID, USERJPA_ID)
-VALUES (9993, 'FALSE', '1', '2');
+VALUES (9993, 'FALSE', '1', '99992');
 
 INSERT INTO REVIEW(ID, COMMENT, REVIEW_DATE, MEDIAJPA_ID, USERJPA_ID)
-VALUES ('99991','Super','2019-12-12','1','1');
+VALUES ('99991','Super','2019-12-12','1','99991');
 
 INSERT INTO REVIEW(ID, COMMENT, REVIEW_DATE, MEDIAJPA_ID, USERJPA_ID)
-VALUES ('99992','l''auteur cède à la facilité','2019-12-13','1','2');
+VALUES ('99992','l''auteur cède à la facilité','2019-12-13','1','99992');
 
 INSERT INTO REVIEW(ID, COMMENT, REVIEW_DATE, MEDIAJPA_ID, USERJPA_ID)
-VALUES ('99993','Nul! j''adore!','2019-12-14','2','2');
+VALUES ('99993','Nul! j''adore!','2019-12-14','2','99992');

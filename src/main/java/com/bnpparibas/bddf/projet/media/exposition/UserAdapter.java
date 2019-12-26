@@ -8,16 +8,13 @@ import com.bnpparibas.bddf.projet.media.exposition.dto.UserLightDTO;
 
 import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class UserAdapter {
     public UserAdapter() {}
 
     public static User transformToUser (UserDTO userDTO){
-        String id = (userDTO.getId() == null || userDTO.getId().trim().equals(""))? UUID.randomUUID().toString() : userDTO.getId();
-
-        return new User(id,
+        return new User(userDTO.getId(),
                 userDTO.getLogin(),
                 userDTO.getPassword(),
                 userDTO.getUserName(),

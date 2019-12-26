@@ -23,7 +23,7 @@ public class MediaNotationRepositoryImpl implements MediaNotationRepository {
     private UserDAO userDAO;
 
     @Override
-    public void saveOrUpdate(String mediaId, boolean liked, String userId) {
+    public void saveOrUpdate(String mediaId, boolean liked, Long userId) {
         MediaNotationJPA mediaNotationJPA = mediaNotationDAO.searchByMediaIdUserId(mediaId, userId);
         if (mediaNotationJPA != null) {
             mediaNotationJPA.liked = liked;

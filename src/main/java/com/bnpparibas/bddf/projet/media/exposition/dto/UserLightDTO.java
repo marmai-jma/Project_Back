@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class UserLightDTO {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    String id;
+    Long id;
 
     @JsonProperty
     String login;
@@ -16,13 +16,13 @@ public class UserLightDTO {
 
     public UserLightDTO() {}
 
-    public UserLightDTO(String id, String login, boolean active) {
+    public UserLightDTO(Long id, String login, boolean active) {
         this.id = id;
         this.login = login;
         this.active = active;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 

@@ -14,11 +14,11 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public String create(User newUser){
+    public Long create(User newUser){
         return this.userRepository.save(newUser);
     }
 
-    public User obtain(String id){
+    public User obtain(Long id){
         return this.userRepository.get(id);
     }
 
@@ -26,13 +26,13 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
-    public void update(String id, User userToUpdate){
+    public void update(Long id, User userToUpdate){
         User user = obtain(id);
         user.update(userToUpdate);
         this.userRepository.update(user);
     }
 
-    public void remove(String id){
+    public void remove(Long id){
         User user = obtain(id);
         user.setActive(false);
         this.userRepository.update(user);

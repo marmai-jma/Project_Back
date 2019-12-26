@@ -17,13 +17,13 @@ public class UserRepositoryImpl implements UserRepository {
     private UserDAO userDAO;
 
     @Override
-    public String save(User user) {
+    public Long save(User user) {
         UserJPA userJPA = userDAO.save(new UserJPA(user));
         return userJPA.getId();
     }
 
    @Override
-   public String update(User user) {
+   public Long update(User user) {
        Optional<UserJPA> userJPA = userDAO.findById(user.getId());
        if (userJPA.isPresent()) {
            return userDAO.save(new UserJPA(user, userJPA.get().getMediaNotationsJPA())).getId();
@@ -33,7 +33,7 @@ public class UserRepositoryImpl implements UserRepository {
 
 
     @Override
-    public User get(String id) {
+    public User get(Long id) {
         return userDAO.findById(id)
                 .map(userJPA -> userJPA.jpatoUser())
                 .orElseThrow(() -> new ProjectApplicationException(ErrorCodes.NOT_FOUND));
@@ -54,10 +54,5 @@ public class UserRepositoryImpl implements UserRepository {
                 .map(userJPA -> userJPA.jpatoUser())
                 .orElseThrow(() -> new ProjectApplicationException(ErrorCodes.NOT_FOUND));
     }
-
-    @Override
-    public void delete(String id) {
-            userDAO.deleteById(id);
-        }
 
 }

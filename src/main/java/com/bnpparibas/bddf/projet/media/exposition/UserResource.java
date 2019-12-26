@@ -21,7 +21,7 @@ public class UserResource {
         }
 
         @RequestMapping(method = RequestMethod.GET, path = {"/users/{userId}"})
-        public UserDTO detailUser(@PathVariable("userId") String userId ){
+        public UserDTO detailUser(@PathVariable("userId") Long userId ){
             return UserAdapter.adaptToUserDTO(this.userService.obtain(userId));
         }
 
@@ -32,13 +32,13 @@ public class UserResource {
         }
 
         @RequestMapping(method = RequestMethod.PUT, path = {"/users/{userId}"})
-        public void updateUser(@PathVariable("userId") String userId, @RequestBody UserDTO userDTO) {
+        public void updateUser(@PathVariable("userId") Long userId, @RequestBody UserDTO userDTO) {
             this.userService.update(userId, UserAdapter.transformToUser(userDTO));
         }
 
         @RequestMapping(method = RequestMethod.DELETE, path = {"/users/{userId}"})
         @ResponseStatus(HttpStatus.NO_CONTENT)
-        public void removeUser(@PathVariable("userId") String userId) {
+        public void removeUser(@PathVariable("userId") Long userId) {
             this.userService.remove(userId);
         }
 
