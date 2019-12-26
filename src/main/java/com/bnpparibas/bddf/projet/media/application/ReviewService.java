@@ -14,11 +14,11 @@ public class ReviewService {
     @Autowired
     private ReviewRepository reviewRepository;
 
-    public String create(Review newReview){
+    public long create(Review newReview){
         return this.reviewRepository.save(newReview);
     }
 
-    public Review obtain(String id){
+    public Review obtain(long id){
         return this.reviewRepository.get(id);
     }
 
@@ -26,13 +26,13 @@ public class ReviewService {
         return this.reviewRepository.findAll();
     }
 
-    public void update(String id, Review reviewToUpdate){
+    public void update(long id, Review reviewToUpdate){
         Review review = obtain(id);
         review.update(reviewToUpdate);
         this.reviewRepository.save(review);
     }
 
-    public void remove(String id){
+    public void remove(long id){
         obtain(id);
         this.reviewRepository.delete(id);
     }

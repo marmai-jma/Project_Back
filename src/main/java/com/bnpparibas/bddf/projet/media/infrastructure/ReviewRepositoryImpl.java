@@ -30,19 +30,16 @@ public class ReviewRepositoryImpl implements ReviewRepository {
             }
     }
 
+
     @Override
-    public String save(Review review) {
+    public long save(Review review) {
         ReviewJPA reviewJPA = reviewDAO.save(new ReviewJPA(review));
         return reviewJPA.getId();
     }
 
-    @Override
-    public String update(Review review) {
-        return null;
-    }
 
     @Override
-    public Review get(String id) {
+    public Review get(long id) {
         return reviewDAO.findById(id)
                 .map(reviewJPA -> reviewJPA.jpaToReview())
                 .orElseThrow(() -> new ProjectApplicationException(ErrorCodes.NOT_FOUND));
@@ -58,7 +55,7 @@ public class ReviewRepositoryImpl implements ReviewRepository {
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(long id) {
         reviewDAO.deleteById(id);
     }
 }

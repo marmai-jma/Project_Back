@@ -11,9 +11,9 @@ import java.util.UUID;
 @Entity(name = "REVIEW")
 public class ReviewJPA {
     @Id
-    //@GeneratedValue()
+    @GeneratedValue()
     @Column(name = "ID")
-    private String id;
+    private long id;
     @Column(name = "COMMENT")
     private String comment;
     @Column(name = "REVIEW_DATE")
@@ -22,15 +22,15 @@ public class ReviewJPA {
     @JsonProperty
     @ManyToOne
     @JsonManagedReference
-    MediaJPA mediaJPA;
+    private MediaJPA mediaJPA;
 
     @JsonProperty
     @ManyToOne
-    UserJPA userJPA;
+    private UserJPA userJPA;
 
     public ReviewJPA() { }
 
-    public ReviewJPA(String id, String comment, LocalDateTime reviewDate, MediaJPA mediaJPA, UserJPA userJPA) {
+    public ReviewJPA(long id, String comment, LocalDateTime reviewDate, MediaJPA mediaJPA, UserJPA userJPA) {
         this.id = id;
         this.comment = comment;
         this.reviewDate = reviewDate;
@@ -39,7 +39,7 @@ public class ReviewJPA {
     }
 
     public ReviewJPA(String comment, MediaJPA mediaJPA, UserJPA userJPA) {
-        this.id = UUID.randomUUID().toString();
+        //this.id = UUID.randomUUID().toString();
         this.comment = comment;
         this.reviewDate = LocalDateTime.now();
         this.mediaJPA = mediaJPA;
@@ -61,7 +61,7 @@ public class ReviewJPA {
     }
 
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 

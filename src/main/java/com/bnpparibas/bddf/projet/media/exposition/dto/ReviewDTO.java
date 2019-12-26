@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public class ReviewDTO {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    String id;
+    long id;
 
     @JsonProperty
     String comment;
@@ -25,7 +25,7 @@ public class ReviewDTO {
 
     public ReviewDTO() { }
 
-    public ReviewDTO(String id, String comment, LocalDateTime reviewDate, int usefulNumber, int uselessNumber) {
+    public ReviewDTO(long id, String comment, LocalDateTime reviewDate, int usefulNumber, int uselessNumber) {
         this.id = id;
         this.comment = comment;
         this.reviewDate = reviewDate;
@@ -33,7 +33,7 @@ public class ReviewDTO {
         this.uselessNumber = uselessNumber;
     }
 
-    public ReviewDTO(String id, String comment, LocalDateTime reviewDate, int usefulNumber, int uselessNumber, UserLightDTO userDto) {
+    public ReviewDTO(long id, String comment, LocalDateTime reviewDate, int usefulNumber, int uselessNumber, UserLightDTO userDto) {
         this.id = id;
         this.comment = comment;
         this.reviewDate = reviewDate;
@@ -42,7 +42,7 @@ public class ReviewDTO {
         this.userDto = userDto;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 

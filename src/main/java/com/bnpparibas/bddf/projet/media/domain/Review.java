@@ -3,7 +3,7 @@ package com.bnpparibas.bddf.projet.media.domain;
 import java.time.LocalDateTime;
 
 public class Review {
-    private String id;
+    private long id;
     private String comment;
     private LocalDateTime reviewDate;
     private Media media;
@@ -12,7 +12,7 @@ public class Review {
 
     public Review() {}
 
-    public Review(String id, String comment, LocalDateTime reviewDate, Media media, User user) {
+    public Review(long id, String comment, LocalDateTime reviewDate, Media media, User user) {
         this.id = id;
         this.comment = comment;
         this.reviewDate = reviewDate;
@@ -27,7 +27,7 @@ public class Review {
         this.user = reviewToUpdate.getUser();
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 

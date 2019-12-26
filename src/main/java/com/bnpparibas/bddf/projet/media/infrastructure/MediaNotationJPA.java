@@ -1,7 +1,5 @@
 package com.bnpparibas.bddf.projet.media.infrastructure;
 
-import com.bnpparibas.bddf.projet.media.domain.MediaNotation;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -12,19 +10,19 @@ public class MediaNotationJPA {
     @Id
     @Column(name = "NOTATION_ID")
     @GeneratedValue
-    Long notationId;
+    private Long notationId;
 
     @JsonProperty
     @ManyToOne
     @JsonManagedReference
-    MediaJPA mediaJPA;
+    private MediaJPA mediaJPA;
 
     @Column(name = "LIKED")
     boolean liked;
 
     @JsonProperty
     @ManyToOne
-    UserJPA userJPA;
+    private UserJPA userJPA;
 
     public MediaNotationJPA() {
     }

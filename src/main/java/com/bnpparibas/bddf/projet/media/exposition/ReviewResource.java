@@ -20,7 +20,7 @@ public class ReviewResource {
 
 
     @RequestMapping(method = RequestMethod.GET, path = {"/reviews/{reviewId}"})
-    public ReviewDTO detailReview(@PathVariable("reviewId") String reviewId ){
+    public ReviewDTO detailReview(@PathVariable("reviewId") long reviewId ){
         return ReviewAdapter.adaptToReviewDTO(this.reviewService.obtain(reviewId));
     }
 /*
@@ -37,7 +37,7 @@ public class ReviewResource {
 */
     @RequestMapping(method = RequestMethod.DELETE, path = {"/reviews/{reviewId}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removeReview(@PathVariable("reviewId") String reviewId) {
+    public void removeReview(@PathVariable("reviewId") long reviewId) {
         this.reviewService.remove(reviewId);
     }
 }
