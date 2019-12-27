@@ -22,6 +22,15 @@ public class Review {
         this.user = user;
     }
 
+    public Review(long id, String comment, LocalDateTime reviewDate, Media media, User user, Set<ReviewNotation> reviewNotations) {
+        this.id = id;
+        this.comment = comment;
+        this.reviewDate = reviewDate;
+        this.media = media;
+        this.user = user;
+        this.reviewNotations = reviewNotations;
+    }
+
     public void update(Review reviewToUpdate) {
         this.comment = reviewToUpdate.getComment();
         this.reviewDate = reviewToUpdate.getReviewDate();
@@ -60,8 +69,15 @@ public class Review {
         return usefulNumber;
     }
 
-    public int getReviewNotationNumber() {
-        return (this.reviewNotations == null) ? 0 : this.reviewNotations.size();
+    public int getUselessNumber() {
+        int uselessNumber = 0;
+        if (this.reviewNotations != null) {
+            for (ReviewNotation reviewNotation : this.reviewNotations) {
+                if (!reviewNotation.isUseful())
+                    uselessNumber++;
+            }
+        }
+        return uselessNumber;
     }
 
 }

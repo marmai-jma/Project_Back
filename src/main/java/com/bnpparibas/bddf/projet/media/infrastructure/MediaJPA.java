@@ -91,10 +91,7 @@ public class MediaJPA {
         Set<Review> reviews = null;
         if (this.reviewsJPA != null) {
             reviews = this.reviewsJPA.stream()
-                    .map(reviewJPA -> new Review(reviewJPA.getId(), reviewJPA.getComment(), reviewJPA.getReviewDate(),null,
-                            new User(reviewJPA.getUserJPA().getId(),
-                                    reviewJPA.getUserJPA().getLogin(),
-                                    reviewJPA.getUserJPA().isActive())))
+                    .map(reviewJPA -> reviewJPA.jpaToReview())
                     .collect(Collectors.toSet());
         }
         return new Media(this.getId(),

@@ -41,7 +41,7 @@ public final class MediaAdapter {
         Set<ReviewDTO> reviewDTOS = null;
         if (media.getReviews() != null) {
             reviewDTOS = media.getReviews().stream()
-                    .map(review -> new ReviewDTO(review.getId(), review.getComment(), review.getReviewDate(), review.getUsefulNumber(), review.getReviewNotationNumber() - review.getUsefulNumber(),
+                    .map(review -> new ReviewDTO(review.getId(), review.getComment(), review.getReviewDate(), review.getUsefulNumber(), review.getUselessNumber(),
                             new UserLightDTO(review.getUser().getId(),
                                     review.getUser().getLogin(),
                                     review.getUser().isActive())))
