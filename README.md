@@ -2,7 +2,7 @@
 Le projet fil rouge consiste à créer un site permettant aux utilisateurs de donner leur avis et de mettre des commentaires sur des médias. 
 Des recommandations pourront être adressées aux utilisateurs du site en fonction de leurs préférences. 
 
-![image info](./UML_diagram.png)
+![image info](./MVP_UML_diagram.png)
 Ci-dessus:
 - la partie jaune correspond au MVP (Minimal Viable Product).
 - la partie verte correspond au MMP (Minimal Marketable Product).
