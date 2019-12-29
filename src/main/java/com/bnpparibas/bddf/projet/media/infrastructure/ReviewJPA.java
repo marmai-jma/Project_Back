@@ -20,6 +20,7 @@ public class ReviewJPA {
     @Column(name = "ID")
     private Long id;
     @Column(name = "COMMENT")
+    @org.hibernate.annotations.Type(type="text")
     private String comment;
     @Column(name = "REVIEW_DATE")
     private LocalDateTime reviewDate;

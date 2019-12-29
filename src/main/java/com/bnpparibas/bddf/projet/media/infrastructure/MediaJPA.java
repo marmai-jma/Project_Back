@@ -33,6 +33,7 @@ public class MediaJPA {
     private String authorSurname;
 
     @Column(name = "DESCRIPTION")
+    @org.hibernate.annotations.Type(type="text")
     private String description;
 
     @Column(name = "MEDIA_IMAGE_URL")
