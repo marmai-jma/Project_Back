@@ -47,7 +47,7 @@ public class MediaService {
         mediaNotationRepository.saveOrUpdate(mediaId, liked, userRepository.findByLogin(userLogin).getId());
     }
 
-    public void addReview(String mediaId, String comment, String userLogin){
-        reviewRepository.saveOrUpdate(mediaId, comment, userRepository.findByLogin(userLogin).getId());
+    public Review addReview(String mediaId, String comment, String userLogin){
+        return reviewRepository.saveOrUpdate(mediaId, comment, userRepository.findByLogin(userLogin).getId());
     }
 }
