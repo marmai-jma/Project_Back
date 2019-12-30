@@ -57,7 +57,7 @@ public class ReviewRepositoryImpl implements ReviewRepository {
     @Override
     public List<Review> searchByMediaId(String mediaId) {
         return reviewDAO
-                .findAll()
+                .searchByMediaId(mediaId)
                 .stream()
                 .map(reviewJPA -> reviewJPA.jpaToReview())
                 .collect(Collectors.toList());
