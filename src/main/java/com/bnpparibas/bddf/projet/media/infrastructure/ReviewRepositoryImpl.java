@@ -55,6 +55,15 @@ public class ReviewRepositoryImpl implements ReviewRepository {
     }
 
     @Override
+    public List<Review> searchByMediaId(String mediaId) {
+        return reviewDAO
+                .findAll()
+                .stream()
+                .map(reviewJPA -> reviewJPA.jpaToReview())
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public void delete(Long id) {
         reviewDAO.deleteById(id);
     }

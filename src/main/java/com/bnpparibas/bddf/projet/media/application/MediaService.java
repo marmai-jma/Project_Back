@@ -43,11 +43,15 @@ public class MediaService {
         this.mediaRepository.delete(id);
     }
 
-    public void addNotation(String mediaId, Boolean liked, String userLogin){
+    public void addNotationToMedia(String mediaId, Boolean liked, String userLogin){
         mediaNotationRepository.saveOrUpdate(mediaId, liked, userRepository.findByLogin(userLogin).getId());
     }
 
-    public Review addReview(String mediaId, String comment, String userLogin){
+    public Review addReviewToMedia(String mediaId, String comment, String userLogin){
         return reviewRepository.saveOrUpdate(mediaId, comment, userRepository.findByLogin(userLogin).getId());
+    }
+
+    public List<Review> listAllReviewsByMedia(String mediaId){
+        return this.reviewRepository.searchByMediaId(mediaId);
     }
 }

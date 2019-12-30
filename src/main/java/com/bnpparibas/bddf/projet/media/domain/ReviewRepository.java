@@ -4,6 +4,7 @@ import java.util.List;
 
 public interface ReviewRepository {
     Review saveOrUpdate(String mediaId, String comment, Long userId);
+    List<Review> searchByMediaId(String mediaId);
     long save(Review review);
     Review get(Long id);
     List<Review> findAll();

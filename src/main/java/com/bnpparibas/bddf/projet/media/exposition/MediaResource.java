@@ -44,12 +44,17 @@ public class MediaResource {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = {"/medias/{mediaId}/notation/{userLogin}"})
-    public void addNotation(@PathVariable("mediaId") String mediaId, @RequestBody MediaNotationFormDTO mediaNotationFormDTO, @PathVariable("userLogin") String userLogin) {
-        this.mediaService.addNotation(mediaId, mediaNotationFormDTO.isLiked(), userLogin);
+    public void addNotationToMedia(@PathVariable("mediaId") String mediaId, @RequestBody MediaNotationFormDTO mediaNotationFormDTO, @PathVariable("userLogin") String userLogin) {
+        this.mediaService.addNotationToMedia(mediaId, mediaNotationFormDTO.isLiked(), userLogin);
     }
 
     @RequestMapping(method = RequestMethod.POST, path = {"/medias/{mediaId}/review/{userLogin}"})
     public ReviewDTO addReview(@PathVariable("mediaId") String mediaId, @RequestBody ReviewFormDTO reviewFormDTO, @PathVariable("userLogin") String userLogin) {
-        return ReviewAdapter.adaptToReviewDTO(this.mediaService.addReview(mediaId, reviewFormDTO.getComment(), userLogin));
+        return ReviewAdapter.adaptToReviewDTO(this.mediaService.addReviewToMedia(mediaId, reviewFormDTO.getComment(), userLogin));
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = {"/medias/{mediaId}/reviews"})
+    public List<ReviewDTO> listAllReviewsByMedia(@PathVariable("mediaId") String mediaId ){
+        return ReviewAdapter.adaptToReviewDTOList(this.mediaService.listAllReviewsByMedia(mediaId));
     }
 }
