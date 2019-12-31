@@ -30,6 +30,14 @@ public class ReviewRepositoryImpl implements ReviewRepository {
             }
     }
 
+    @Override
+    public void removeViaMediaByUser(String mediaId, Long userId) {
+        ReviewJPA reviewJPA = reviewDAO.searchByMediaIdUserId(mediaId, userId);
+        if (reviewJPA != null) {
+            reviewDAO.deleteById(reviewJPA.getId());
+        }
+    }
+
 
     @Override
     public long save(Review review) {

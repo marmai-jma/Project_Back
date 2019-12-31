@@ -1,7 +1,6 @@
 package com.bnpparibas.bddf.projet.media.exposition;
 
 import com.bnpparibas.bddf.projet.media.application.MediaService;
-import com.bnpparibas.bddf.projet.media.domain.Review;
 import com.bnpparibas.bddf.projet.media.exposition.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -51,6 +50,12 @@ public class MediaResource {
     @RequestMapping(method = RequestMethod.POST, path = {"/medias/{mediaId}/review/{userLogin}"})
     public ReviewDTO addReview(@PathVariable("mediaId") String mediaId, @RequestBody ReviewFormDTO reviewFormDTO, @PathVariable("userLogin") String userLogin) {
         return ReviewAdapter.adaptToReviewDTO(this.mediaService.addReviewToMedia(mediaId, reviewFormDTO.getComment(), userLogin));
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, path = {"/medias/{mediaId}/review/{userLogin}"})
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeReviewByMediaUser(@PathVariable("mediaId") String mediaId, @RequestBody ReviewFormDTO reviewFormDTO, @PathVariable("userLogin") String userLogin) {
+        this.mediaService.removeReviewFromMediaByUser(mediaId, userLogin);
     }
 
     @RequestMapping(method = RequestMethod.GET, path = {"/medias/{mediaId}/reviews"})

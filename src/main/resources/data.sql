@@ -83,19 +83,19 @@ INSERT INTO USER (ID, LOGIN, PASSWORD, USER_NAME, USER_SURNAME, AVATAR_IMAGE_URL
 VALUES ('99991','Bilbo123','','John','Doe', 'https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple-300x277.jpg','john.doe@gmail.com','TRUE');
 
 INSERT INTO USER (ID, LOGIN, PASSWORD,USER_NAME, USER_SURNAME, AVATAR_IMAGE_URL, EMAIL,ACTIVE)
-VALUES ('99992','Bebe Yoda','','Anne','Honime', 'https://s1.thcdn.com//productimg/1600/1600/12376863-2094725918660345.jpg','a.honime@gmail.com','TRUE');
+VALUES ('99992','toi','','User Test 99992','active', 'https://s1.thcdn.com//productimg/1600/1600/12376863-2094725918660345.jpg','a.honime@gmail.com','TRUE');
 
 INSERT INTO USER (ID, LOGIN, PASSWORD,USER_NAME, USER_SURNAME, AVATAR_IMAGE_URL, EMAIL,ACTIVE)
-VALUES ('99993','moi','','password','', 'https://s1.thcdn.com//productimg/1600/1600/12376863-2094725918660345.jpg','a.honime@gmail.com','TRUE');
+VALUES ('99993','moi','','User Test 99993 ','active', 'https://s1.thcdn.com//productimg/1600/1600/12376863-2094725918660345.jpg','a.honime@gmail.com','TRUE');
 
 INSERT INTO USER (ID, LOGIN, PASSWORD, USER_NAME, USER_SURNAME, AVATAR_IMAGE_URL, EMAIL, ACTIVE)
-VALUES ('99994','UserTest1A','','Alpha','Beta', 'https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple-300x277.jpg','john.doe@gmail.com','TRUE');
+VALUES ('99994','lui','','User Test 99994','active', 'https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple-300x277.jpg','john.doe@gmail.com','TRUE');
 
 INSERT INTO USER (ID, LOGIN, PASSWORD,USER_NAME, USER_SURNAME, AVATAR_IMAGE_URL, EMAIL,ACTIVE)
 VALUES ('99995','UserTest2A','','Gamma','Delta', 'https://s1.thcdn.com//productimg/1600/1600/12376863-2094725918660345.jpg','a.honime@gmail.com','TRUE');
 
 INSERT INTO USER (ID, LOGIN, PASSWORD,USER_NAME, USER_SURNAME, AVATAR_IMAGE_URL, EMAIL,ACTIVE)
-VALUES ('99996','UserTest3I','password','Epsilon','Sigma', 'https://s1.thcdn.com//productimg/1600/1600/12376863-2094725918660345.jpg','a.honime@gmail.com','FALSE');
+VALUES ('99996','vous','password','User Test 99996','inactive', 'https://s1.thcdn.com//productimg/1600/1600/12376863-2094725918660345.jpg','a.honime@gmail.com','FALSE');
 
 INSERT INTO MEDIA_NOTATION (NOTATION_ID, LIKED, MEDIAJPA_ID, USERJPA_ID)
 VALUES (9991, 'TRUE', '1', '99991');
