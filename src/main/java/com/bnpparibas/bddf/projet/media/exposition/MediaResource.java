@@ -54,7 +54,7 @@ public class MediaResource {
 
     @RequestMapping(method = RequestMethod.DELETE, path = {"/medias/{mediaId}/review/{userLogin}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removeReviewByMediaUser(@PathVariable("mediaId") String mediaId, @RequestBody ReviewFormDTO reviewFormDTO, @PathVariable("userLogin") String userLogin) {
+    public void removeReviewByMediaUser(@PathVariable("mediaId") String mediaId, @PathVariable("userLogin") String userLogin) {
         this.mediaService.removeReviewFromMediaByUser(mediaId, userLogin);
     }
 
