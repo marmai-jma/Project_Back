@@ -1,6 +1,7 @@
 package com.bnpparibas.bddf.projet.media.exposition;
 
 import com.bnpparibas.bddf.projet.media.application.MediaService;
+import com.bnpparibas.bddf.projet.media.domain.MediaNotation;
 import com.bnpparibas.bddf.projet.media.exposition.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,6 +46,11 @@ public class MediaResource {
     @RequestMapping(method = RequestMethod.POST, path = {"/medias/{mediaId}/notation/{userLogin}"})
     public void addNotationToMedia(@PathVariable("mediaId") String mediaId, @RequestBody MediaNotationFormDTO mediaNotationFormDTO, @PathVariable("userLogin") String userLogin) {
         this.mediaService.addNotationToMedia(mediaId, mediaNotationFormDTO.isLiked(), userLogin);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = {"/medias/{mediaId}/notation/{userLogin}"})
+    public MediaNotationLightDTO getMediaNotationByMediaIdUserLogin(@PathVariable("mediaId") String mediaId, @PathVariable("userLogin") String userLogin ){
+        return MediaNotationAdapter.adaptToMediaNotationDTO(this.mediaService.getNotationByMedia(mediaId, userLogin));
     }
 
     @RequestMapping(method = RequestMethod.POST, path = {"/medias/{mediaId}/review/{userLogin}"})

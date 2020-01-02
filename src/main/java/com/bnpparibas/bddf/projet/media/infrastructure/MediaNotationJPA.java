@@ -1,5 +1,8 @@
 package com.bnpparibas.bddf.projet.media.infrastructure;
 
+import com.bnpparibas.bddf.projet.media.domain.Media;
+import com.bnpparibas.bddf.projet.media.domain.MediaNotation;
+import com.bnpparibas.bddf.projet.media.domain.User;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -53,5 +56,24 @@ public class MediaNotationJPA {
 
     public Long getNotationId() {
         return notationId;
+    }
+
+    public MediaNotation jpaToMediaNotation() {
+        return new MediaNotation(this.notationId,
+                new Media( this.mediaJPA.getId(),
+                        this.mediaJPA.getLabel(),
+                        this.mediaJPA.getCategory(),
+                        this.mediaJPA.getType(),
+                        this.mediaJPA.getAuthorName(),
+                        this.mediaJPA.getAuthorSurname(),
+                        this.mediaJPA.getDescription(),
+                        this.mediaJPA.getMediaImageURL(),
+                        this.mediaJPA.getPublicationDate(),
+                        null,
+                        null),
+                this.liked,
+                new User(this.userJPA.getId(),
+                        this.userJPA.getLogin(),
+                        this.userJPA.isActive()));
     }
 }

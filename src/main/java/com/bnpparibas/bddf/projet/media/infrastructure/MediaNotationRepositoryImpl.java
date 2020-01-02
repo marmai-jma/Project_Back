@@ -32,4 +32,9 @@ public class MediaNotationRepositoryImpl implements MediaNotationRepository {
             mediaNotationDAO.save(new MediaNotationJPA(mediaDAO.findById(mediaId).get(), liked, userDAO.findById(userId).get()));
         }
     }
+
+    @Override
+    public MediaNotation getByMediaIdUserId(String mediaId, Long userId) {
+        return mediaNotationDAO.searchByMediaIdUserId(mediaId, userId).jpaToMediaNotation();
+    }
 }
