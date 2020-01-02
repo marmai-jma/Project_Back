@@ -98,13 +98,13 @@ INSERT INTO USER (ID, LOGIN, PASSWORD,USER_NAME, USER_SURNAME, AVATAR_IMAGE_URL,
 VALUES ('99996','vous','password','User Test 99996','inactive', 'https://s1.thcdn.com//productimg/1600/1600/12376863-2094725918660345.jpg','a.honime@gmail.com','FALSE');
 
 INSERT INTO MEDIA_NOTATION (NOTATION_ID, LIKED, MEDIAJPA_ID, USERJPA_ID)
-VALUES (9991, 'TRUE', '1', '99991');
+VALUES (99991, 'TRUE', '1', '99991');
 
 INSERT INTO MEDIA_NOTATION (NOTATION_ID, LIKED, MEDIAJPA_ID, USERJPA_ID)
-VALUES (9992, 'FALSE', '2', '99991');
+VALUES (99992, 'FALSE', '2', '99991');
 
 INSERT INTO MEDIA_NOTATION (NOTATION_ID, LIKED, MEDIAJPA_ID, USERJPA_ID)
-VALUES (9993, 'FALSE', '1', '99992');
+VALUES (99993, 'FALSE', '1', '99992');
 
 INSERT INTO REVIEW(ID, COMMENT, REVIEW_DATE, MEDIAJPA_ID, USERJPA_ID)
 VALUES ('99991','Ah, ce film! Immortel, magnifique, novateur! George Lucas et toute la clique se sont vraiment surpassés, tant sur les décors, les idées et l''originalité! Je pense que c''est un peu la base de la SF au ciné; ce film a instauré nombres de choses: l''hyperdrive, les blasters, les sabres-laser, les vaisseaux spatiaux et les Destroyers,... Bien que le film date de 77, c''est comme s''il n''avait pas pris une ride! La bande-son concoctée par notre bien aimé John Williams, les effets spéciaux, bien que certains soient, très légèrement, dépassés et les "méchants" ( Darth Vader et Darth Sidious) le préservent de la vieillesse. Je regrette de n''être que de la génération de 90 et de n''avoir pu découvrir la Première Trilogie SW au ciné. Le scénario, bien qu''extrêmement simple, est, paradoxalement, très original. Les races d''aliens sont aussi nombreuses que variées; les vaisseaux ( Tie, X-wing,...) sont de très bonne conception; les "méchants" sont tous entrés dans l''histoire du cinéma comme étant des icones de la brutalité. En résumé, un film à voir au moins une fois dans sa vie si l''on se veut être un réel cinéphile. ','2019-12-12','1','99991');
