@@ -50,7 +50,8 @@ public class MediaResource {
 
     @RequestMapping(method = RequestMethod.GET, path = {"/medias/{mediaId}/notation/{userLogin}"})
     public MediaNotationLightDTO getMediaNotationByMediaIdUserLogin(@PathVariable("mediaId") String mediaId, @PathVariable("userLogin") String userLogin ){
-        return MediaNotationAdapter.adaptToMediaNotationDTO(this.mediaService.getNotationByMedia(mediaId, userLogin));
+        MediaNotation mediaNotation = this.mediaService.getNotationByMedia(mediaId, userLogin);
+        return (mediaNotation != null) ? MediaNotationAdapter.adaptToMediaNotationDTO(mediaNotation): null;
     }
 
     @RequestMapping(method = RequestMethod.POST, path = {"/medias/{mediaId}/review/{userLogin}"})

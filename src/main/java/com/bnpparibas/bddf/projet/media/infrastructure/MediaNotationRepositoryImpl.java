@@ -35,6 +35,7 @@ public class MediaNotationRepositoryImpl implements MediaNotationRepository {
 
     @Override
     public MediaNotation getByMediaIdUserId(String mediaId, Long userId) {
-        return mediaNotationDAO.searchByMediaIdUserId(mediaId, userId).jpaToMediaNotation();
+        MediaNotationJPA mediaNotationJPA = mediaNotationDAO.searchByMediaIdUserId(mediaId, userId);
+        return (mediaNotationJPA != null) ? mediaNotationJPA.jpaToMediaNotation() : null;
     }
 }
