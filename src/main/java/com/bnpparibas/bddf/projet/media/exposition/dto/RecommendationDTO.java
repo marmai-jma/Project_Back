@@ -1,5 +1,7 @@
 package com.bnpparibas.bddf.projet.media.exposition.dto;
 
+import com.bnpparibas.bddf.projet.media.domain.Category;
+import com.bnpparibas.bddf.projet.media.domain.Type;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class RecommendationDTO {
@@ -7,14 +9,22 @@ public class RecommendationDTO {
     long id;
 
     @JsonProperty
-    MediaLightDTO mediaLightDTO;
+    String mediaLabel;
+
+    @JsonProperty
+    Category category;
+
+    @JsonProperty
+    Type type;
 
     @JsonProperty
     int notation;
 
-    public RecommendationDTO(long id, MediaLightDTO mediaLightDTO, int notation) {
+    public RecommendationDTO(long id, String mediaLabel, Category category, Type type, int notation) {
         this.id = id;
-        this.mediaLightDTO = mediaLightDTO;
+        this.mediaLabel = mediaLabel;
+        this.category = category;
+        this.type = type;
         this.notation = notation;
     }
 }
