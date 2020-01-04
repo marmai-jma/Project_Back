@@ -77,19 +77,12 @@ public final class MediaAdapter {
     }
 
     public static MediaRecoLightDTO adaptToMediaRecoLightDTO(Media media){
-        float likesNumber = media.getLikesNumber();
-        float mediaNotationNumber = media.getMediaNotationNumber();
-        int notation =  Math.round(likesNumber / mediaNotationNumber*100);
-        int weightedNotation =  Math.round(likesNumber * likesNumber / mediaNotationNumber*100);
-        System.out.println(likesNumber);
-        System.out.println(mediaNotationNumber);
-        System.out.println(notation);
         return new MediaRecoLightDTO(1,
                 media.getLabel(),
                 media.getCategory(),
                 media.getType(),
-                notation,
-                weightedNotation,
+                media.computeMediaRecoNotation(),
+                media.computeWeightedRecoNotation(),
                 media.getId(),
                 media.getMediaImageURL());
     }
@@ -101,7 +94,7 @@ public final class MediaAdapter {
 
         mediaRecos.sort(Comparator.comparing(MediaRecoLightDTO::getWeightedNotation).reversed());
 
-        for ( int i = 0; i < mediaRecos.size (); i++) { mediaRecos.get(i).setNumReco(i+1);} ;
+        for ( int i = 0; i < mediaRecos.size (); i++) { mediaRecos.get(i).setId(i+1);} ;
 
         return mediaRecos;
     }

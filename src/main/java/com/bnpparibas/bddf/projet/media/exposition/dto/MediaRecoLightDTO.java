@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MediaRecoLightDTO {
     @JsonProperty
-    long numReco;
+    long id;
 
     @JsonProperty
     String mediaLabel;
@@ -24,29 +24,29 @@ public class MediaRecoLightDTO {
     int weightedNotation;
 
     @JsonProperty
-    String id;
+    String mediaId;
 
     @JsonProperty
     String mediaImageURL;
 
 
-    public MediaRecoLightDTO(long numReco, String mediaLabel, Category category, Type type, int notation, int weightedNotation, String id, String mediaImageURL) {
-        this.numReco = numReco;
+    public MediaRecoLightDTO(long id, String mediaLabel, Category category, Type type, int notation, int weightedNotation, String mediaId, String mediaImageURL) {
+        this.id = id;
         this.mediaLabel = mediaLabel;
         this.category = category;
         this.type = type;
         this.notation = notation;
         this.weightedNotation = weightedNotation;
-        this.id = id;
+        this.mediaId = mediaId;
         this.mediaImageURL = mediaImageURL;
     }
 
-    public long getNumReco() {
-        return numReco;
+    public long getId() {
+        return id;
     }
 
-    public void setNumReco(long numReco) {
-        this.numReco = numReco;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getMediaLabel() {

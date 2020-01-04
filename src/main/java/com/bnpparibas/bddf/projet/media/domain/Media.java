@@ -38,7 +38,6 @@ public class Media {
         this.publicationDate = publicationDate;
         this.mediaNotations = mediaNotations;
         this.reviews = reviews;
-
     }
 
     public void update(Media mediaToUpdate){
@@ -51,6 +50,18 @@ public class Media {
         this.mediaImageURL = mediaToUpdate.getMediaImageURL();
         this.publicationDate = mediaToUpdate.getPublicationDate();
         this.mediaNotations = mediaToUpdate.getMediaNotations();
+    }
+
+    public int computeMediaRecoNotation (){
+        float likesNumber = this.getLikesNumber();
+        float mediaNotationNumber = this.getMediaNotationNumber();
+        return Math.round(likesNumber / mediaNotationNumber*100);
+    }
+
+    public int computeWeightedRecoNotation (){
+        float likesNumber = this.getLikesNumber();
+        float mediaNotationNumber = this.getMediaNotationNumber();
+        return Math.round(likesNumber * likesNumber / mediaNotationNumber*100);
     }
 
     public String getId() {
