@@ -20,12 +20,16 @@ public class MediaRecoLightDTO {
     @JsonProperty
     int notation;
 
-    public MediaRecoLightDTO(long numReco, String mediaLabel, Category category, Type type, int notation) {
+    @JsonProperty
+    int weightedNotation;
+
+    public MediaRecoLightDTO(long numReco, String mediaLabel, Category category, Type type, int notation, int weightedNotation) {
         this.numReco = numReco;
         this.mediaLabel = mediaLabel;
         this.category = category;
         this.type = type;
         this.notation = notation;
+        this.weightedNotation = weightedNotation;
     }
 
     public long getNumReco() {
@@ -50,5 +54,9 @@ public class MediaRecoLightDTO {
 
     public int getNotation() {
         return notation;
+    }
+
+    public int getWeightedNotation() {
+        return weightedNotation;
     }
 }
