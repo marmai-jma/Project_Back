@@ -89,7 +89,9 @@ public final class MediaAdapter {
                 media.getCategory(),
                 media.getType(),
                 notation,
-                weightedNotation);
+                weightedNotation,
+                media.getId(),
+                media.getMediaImageURL());
     }
 
     public static List<MediaRecoLightDTO> adaptToMediaRecoLightDTOList (List<Media> medias){
