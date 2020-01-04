@@ -2,6 +2,7 @@ package com.bnpparibas.bddf.projet.media.exposition;
 
 import com.bnpparibas.bddf.projet.media.application.MediaService;
 import com.bnpparibas.bddf.projet.media.domain.MediaNotation;
+import com.bnpparibas.bddf.projet.media.domain.Review;
 import com.bnpparibas.bddf.projet.media.exposition.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,8 +51,14 @@ public class MediaResource {
 
     @RequestMapping(method = RequestMethod.GET, path = {"/medias/{mediaId}/notation/{userLogin}"})
     public MediaNotationLightDTO getMediaNotationByMediaIdUserLogin(@PathVariable("mediaId") String mediaId, @PathVariable("userLogin") String userLogin ){
-        MediaNotation mediaNotation = this.mediaService.getNotationByMedia(mediaId, userLogin);
+        MediaNotation mediaNotation = this.mediaService.getNotationByMediaUser(mediaId, userLogin);
         return (mediaNotation != null) ? MediaNotationAdapter.adaptToMediaNotationDTO(mediaNotation): null;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = {"/medias/{mediaId}/review/{userLogin}"})
+    public ReviewDTO getReviewByMediaIdUserLogin(@PathVariable("mediaId") String mediaId, @PathVariable("userLogin") String userLogin ){
+        Review review = this.mediaService.getReviewByMediaUser(mediaId, userLogin);
+        return (review != null) ? ReviewAdapter.adaptToReviewDTO(review): null;
     }
 
     @RequestMapping(method = RequestMethod.POST, path = {"/medias/{mediaId}/review/{userLogin}"})

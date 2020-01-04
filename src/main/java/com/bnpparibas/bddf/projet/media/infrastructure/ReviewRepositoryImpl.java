@@ -75,4 +75,10 @@ public class ReviewRepositoryImpl implements ReviewRepository {
     public void delete(Long id) {
         reviewDAO.deleteById(id);
     }
+
+    @Override
+    public Review getReviewByMediaIdUserId(String mediaId, Long userId) {
+        ReviewJPA reviewJPA = reviewDAO.searchByMediaIdUserId(mediaId, userId);
+        return (reviewJPA != null) ? reviewJPA.jpaToReview() : null;
+    }
 }

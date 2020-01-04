@@ -10,4 +10,5 @@ public interface ReviewRepository {
     Review get(Long id);
     List<Review> findAll();
     void delete(Long id);
+    Review getReviewByMediaIdUserId(String mediaId, Long userId);
 }
