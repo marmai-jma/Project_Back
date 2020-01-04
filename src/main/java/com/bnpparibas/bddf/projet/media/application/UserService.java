@@ -22,6 +22,9 @@ public class UserService {
         return this.userRepository.get(id);
     }
 
+    public User obtainByLogin(String userLogin){
+        return this.userRepository.findByLogin(userLogin);
+    }
     public List<User> listAll(){
         return this.userRepository.findAll();
     }

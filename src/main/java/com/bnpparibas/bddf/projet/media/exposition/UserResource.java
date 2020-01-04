@@ -25,6 +25,11 @@ public class UserResource {
             return UserAdapter.adaptToUserDTO(this.userService.obtain(userId));
         }
 
+        @RequestMapping(method = RequestMethod.GET, path = {"/users/login/{userLogin}"})
+        public UserDTO detailUserByLogin(@PathVariable("userLogin") String userLogin ){
+            return UserAdapter.adaptToUserDTO(this.userService.obtainByLogin(userLogin));
+        }
+
         @RequestMapping(method = RequestMethod.POST, path = {"/users"})
         @ResponseStatus(HttpStatus.CREATED)
         public void createUser(@Valid @RequestBody UserDTO userDTO) {
