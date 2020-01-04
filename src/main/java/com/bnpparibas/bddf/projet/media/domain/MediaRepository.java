@@ -10,4 +10,5 @@ public interface MediaRepository {
     Media get(String id);
     List<Media> findAll();
     void delete(String id);
+    List<Media> findAllMediaWithNotation();
 }

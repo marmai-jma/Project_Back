@@ -69,4 +69,9 @@ public class MediaResource {
     public List<ReviewDTO> listAllReviewsByMedia(@PathVariable("mediaId") String mediaId ){
         return ReviewAdapter.adaptToReviewDTOList(this.mediaService.listAllReviewsByMedia(mediaId));
     }
+
+    @RequestMapping(method= RequestMethod.GET, path={"/recommendations"})
+    public List<MediaRecoLightDTO> listAllRecommendations(){
+        return (MediaAdapter.adaptToMediaRecoLightDTOList(this.mediaService.listAllMediaRecoLight()));
+    }
 }

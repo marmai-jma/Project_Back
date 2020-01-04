@@ -1,10 +1,12 @@
 package com.bnpparibas.bddf.projet.media.application;
 
 import com.bnpparibas.bddf.projet.media.domain.*;
+import com.bnpparibas.bddf.projet.media.exposition.dto.MediaRecoLightDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Transactional
@@ -60,5 +62,9 @@ public class MediaService {
     }
     public List<Review> listAllReviewsByMedia(String mediaId){
         return this.reviewRepository.searchByMediaId(mediaId);
+    }
+
+    public List<Media> listAllMediaRecoLight (){
+        return mediaRepository.findAllMediaWithNotation();
     }
 }

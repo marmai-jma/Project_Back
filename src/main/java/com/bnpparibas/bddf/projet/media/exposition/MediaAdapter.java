@@ -1,12 +1,10 @@
 package com.bnpparibas.bddf.projet.media.exposition;
 
-import com.bnpparibas.bddf.projet.media.domain.Media;
-import com.bnpparibas.bddf.projet.media.exposition.dto.*;
+        import com.bnpparibas.bddf.projet.media.domain.Media;
+        import com.bnpparibas.bddf.projet.media.exposition.dto.*;
 
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
-import java.util.stream.Collectors;
+        import java.util.*;
+        import java.util.stream.Collectors;
 
 
 public final class MediaAdapter {
@@ -76,6 +74,32 @@ public final class MediaAdapter {
                 media.getPublicationDate(),
                 likesNumber,
                 media.getMediaNotationNumber() - likesNumber);
+    }
+
+    public static MediaRecoLightDTO adaptToMediaRecoLightDTO(Media media){
+        float likesNumber = media.getLikesNumber();
+        float mediaNotationNumber = media.getMediaNotationNumber();
+        int notation =  Math.round(likesNumber * likesNumber / mediaNotationNumber*100);
+        System.out.println(likesNumber);
+        System.out.println(mediaNotationNumber);
+        System.out.println(notation);
+        return new MediaRecoLightDTO(1,
+                media.getLabel(),
+                media.getCategory(),
+                media.getType(),
+                notation);
+    }
+
+    public static List<MediaRecoLightDTO> adaptToMediaRecoLightDTOList (List<Media> medias){
+        List<MediaRecoLightDTO> mediaRecos = medias.stream()
+                .map(media -> adaptToMediaRecoLightDTO(media))
+                .collect(Collectors.toList());
+
+        mediaRecos.sort(Comparator.comparing(MediaRecoLightDTO::getNotation).reversed());
+
+        for ( int i = 0; i < mediaRecos.size (); i++) { mediaRecos.get(i).setNumReco(i+1);} ;
+
+        return mediaRecos;
     }
 
     public static List<MediaLightDTO> adaptToMediaLightDTOList(List<Media> medias){

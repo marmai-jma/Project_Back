@@ -51,4 +51,13 @@ public class MediaRepositoryImpl implements MediaRepository {
     public void delete(String id) {
         mediaDAO.deleteById(id);
     }
+
+    @Override
+    public List<Media> findAllMediaWithNotation(){
+        return mediaDAO
+                .searchMediaWithNotation()
+                .stream()
+                .map(mediaJPA -> mediaJPA.jpaToMedia())
+                .collect(Collectors.toList());
+    }
 }
