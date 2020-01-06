@@ -12,5 +12,5 @@ public interface MediaDAO extends JpaRepository<MediaJPA, String> {
     List<MediaJPA> searchMediaWithNotation();
 
     //@Query("SELECT media FROM MEDIA media WHERE media.category = ?1")
-    List<Media> findByCategory(Category category);
+    List<MediaJPA> findByCategory(Category category);
 }

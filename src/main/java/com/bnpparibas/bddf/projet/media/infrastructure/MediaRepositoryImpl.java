@@ -50,7 +50,10 @@ public class MediaRepositoryImpl implements MediaRepository {
 
     @Override
     public List<Media> findByCategory(Category category) {
-        return mediaDAO.findByCategory(category);
+        return mediaDAO.findByCategory(category)
+                .stream()
+                .map(mediaJPA -> mediaJPA.jpaToMedia())
+                .collect(Collectors.toList());
     }
 
     @Override
