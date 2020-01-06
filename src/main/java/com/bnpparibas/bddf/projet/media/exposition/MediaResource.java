@@ -1,6 +1,7 @@
 package com.bnpparibas.bddf.projet.media.exposition;
 
 import com.bnpparibas.bddf.projet.media.application.MediaService;
+import com.bnpparibas.bddf.projet.media.domain.Category;
 import com.bnpparibas.bddf.projet.media.domain.MediaNotation;
 import com.bnpparibas.bddf.projet.media.domain.Review;
 import com.bnpparibas.bddf.projet.media.exposition.dto.*;
@@ -20,6 +21,11 @@ public class MediaResource {
     @RequestMapping(method= RequestMethod.GET, path={"/medias"})
     public List<MediaLightDTO> listAllMedias(){
         return MediaAdapter.adaptToMediaLightDTOList(this.mediaService.listAll());
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = {"/medias/category/{category}"})
+    public List<MediaLightDTO> listMediaByCategory(@PathVariable("category") Category category) {
+        return MediaAdapter.adaptToMediaLightDTOList(this.mediaService.listByCategory(category));
     }
 
     @RequestMapping(method = RequestMethod.GET, path = {"/medias/{mediaId}"})

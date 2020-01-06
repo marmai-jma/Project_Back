@@ -1,5 +1,6 @@
 package com.bnpparibas.bddf.projet.media.infrastructure;
 
+import com.bnpparibas.bddf.projet.media.domain.Category;
 import com.bnpparibas.bddf.projet.media.domain.MediaRepository;
 import com.bnpparibas.bddf.projet.media.domain.Media;
 import com.bnpparibas.bddf.projet.media.domain.exception.ErrorCodes;
@@ -45,6 +46,11 @@ public class MediaRepositoryImpl implements MediaRepository {
                 .stream()
                 .map(mediaJPA -> mediaJPA.jpaToMedia())
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Media> findByCategory(Category category) {
+        return mediaDAO.findByCategory(category);
     }
 
     @Override

@@ -23,16 +23,13 @@ public class MediaService {
 
 
     public String create(Media newMedia){
-        return this.mediaRepository.save(newMedia);
-    }
+        return this.mediaRepository.save(newMedia); }
 
-    public Media obtain(String id){
-        return this.mediaRepository.get(id);
-    }
+    public Media obtain(String id){ return this.mediaRepository.get(id); }
 
-    public List<Media> listAll(){
-        return this.mediaRepository.findAll();
-    }
+    public List<Media> listAll(){ return this.mediaRepository.findAll(); }
+
+    public List<Media> listByCategory(Category category){ return this.mediaRepository.findByCategory(category); }
 
     public void update(String id, Media mediaToUpdate){
         Media media = obtain(id);

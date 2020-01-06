@@ -98,7 +98,7 @@ public class Media {
         int likesNumber = 0;
         if (this.mediaNotations != null) {
             for (MediaNotation mediaNotation : this.mediaNotations) {
-                if (mediaNotation.isLiked())
+                if (mediaNotation. isLiked())
                     likesNumber++;
             }
         }
