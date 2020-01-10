@@ -72,9 +72,7 @@ public class Media {
         return label;
     }
 
-    public Category getCategory() {
-        return category;
-    }
+    public Category getCategory() { return category; }
 
     public Type getType() {
         return type;
