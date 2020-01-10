@@ -55,7 +55,7 @@ Liste des API REST exposées par le BACK et appelées dans des composants du FRO
 
 ## Éléments de conception
 
-Modèle de données: 
+Diagramme de classes: 
 ![image info](./UML_diagram.png)
 
 - la partie jaune correspond au MVP (Minimal Viable Product).
