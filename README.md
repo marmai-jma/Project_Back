@@ -18,7 +18,7 @@ A ce stade du développement du projet, il n'est pas possible de créer de nouve
 
 ## Informations techniques
 * Le projet BACK est lancé via `run` sur ProjectApplication dans l'IDE Intellij. Par défaut, le projet BACK tourne sur `http://localhost:8080/`
-* La base h2 a pour JDBC URL: jdbc:h2:mem:mediadb avec User Name: jmarnr (sans Password). [Url en local](http://localhost:8080/h2/)
+* Pour accéder à la [base h2 en local](http://localhost:8080/h2/). Dans Saved Setting: mettre Generic H2 (embedded) - Dans Setting Name: mettre Generic H2 (embedded) - Dans Driver Class: org.h2.Driver -Dans JDBC URL : jdbc:h2:mem:mediadb - Dans User Name : jmarnr - Ne rien mettre dans Password.
 * Les API REST peuvent être testées via [swagger](http://localhost:8080/swagger-ui.html#) 
 
 ## API
